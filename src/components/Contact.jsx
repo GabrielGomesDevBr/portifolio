@@ -40,7 +40,7 @@ export default function Contact() {
     ]
 
     const handleDownloadCV = () => {
-        generateCV()
+        generateCV(language)
     }
 
     return (

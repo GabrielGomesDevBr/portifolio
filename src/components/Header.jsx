@@ -5,7 +5,7 @@ import LanguageSelector from './LanguageSelector'
 import { generateCV } from '../utils/generateCV'
 
 export default function Header() {
-    const { t } = useLanguage()
+    const { t, language } = useLanguage()
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -37,8 +37,8 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? 'bg-white/90 backdrop-blur-lg shadow-lg'
-                    : 'bg-transparent'
+                ? 'bg-white/90 backdrop-blur-lg shadow-lg'
+                : 'bg-transparent'
                 }`}
         >
             <nav className="container-custom">
@@ -91,7 +91,7 @@ export default function Header() {
                             <Linkedin size={20} />
                         </a>
                         <button
-                            onClick={generateCV}
+                            onClick={() => generateCV(language)}
                             className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-semibold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
                         >
                             <Download size={18} />
@@ -115,8 +115,8 @@ export default function Header() {
             {/* Mobile Menu */}
             <div
                 className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg shadow-xl transition-all duration-300 ${isMobileMenuOpen
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 -translate-y-4 pointer-events-none'
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 -translate-y-4 pointer-events-none'
                     }`}
             >
                 <div className="container-custom py-4 space-y-2">
