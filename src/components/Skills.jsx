@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Monitor, Server, Database, Brain, Cloud, Layers } from 'lucide-react'
-import { skillCategories, softSkills } from '../data/skills'
+import { skillCategories } from '../data/skills'
+import { useLanguage } from '../context/LanguageContext'
 
 const iconMap = {
     Monitor,
@@ -76,6 +77,8 @@ function SkillCard({ category, index }) {
 }
 
 export default function Skills() {
+    const { t } = useLanguage()
+
     return (
         <section id="skills" className="section-padding bg-surface-50">
             <div className="container-custom">
@@ -88,14 +91,14 @@ export default function Skills() {
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
                     <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 font-semibold rounded-full text-sm mb-4">
-                        Habilidades
+                        {t.skills.badge}
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 mb-4">
-                        Tecnologias que
-                        <span className="text-gradient"> domino</span>
+                        {t.skills.title}
+                        <span className="text-gradient">{t.skills.titleHighlight}</span>
                     </h2>
                     <p className="text-lg text-surface-500">
-                        Stack completa para desenvolver aplicações modernas, escaláveis e com IA integrada.
+                        {t.skills.description}
                     </p>
                 </motion.div>
 
@@ -115,10 +118,10 @@ export default function Skills() {
                     className="bg-gradient-to-br from-primary-500 to-purple-600 rounded-3xl p-8 md:p-12"
                 >
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
-                        Diferenciais Técnicos
+                        {t.skills.differentials}
                     </h3>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {softSkills.map((skill, index) => (
+                        {t.skills.softSkills.map((skill, index) => (
                             <motion.div
                                 key={skill.title}
                                 initial={{ opacity: 0, scale: 0.9 }}

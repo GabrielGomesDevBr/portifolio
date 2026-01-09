@@ -1,6 +1,60 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Users, Building2, Code2, CheckCircle2, Star } from 'lucide-react'
-import { featuredProject, otherProjects } from '../data/projects'
+import { useLanguage } from '../context/LanguageContext'
+
+// Base project data (structure only, no text)
+const projectsBase = {
+    abaplay: {
+        id: 'abaplay',
+        title: 'ABAplay',
+        technologies: ['React', 'Node.js', 'PostgreSQL', 'Socket.IO', 'OpenAI', 'Tailwind'],
+        status: 'production',
+        metrics: { patients: '300+', clinics: '4', lines: '85K+' },
+        links: { demo: 'https://abaplay.app.br', info: 'https://abaplay.app.br' }
+    },
+    'financas-ia': {
+        id: 'financas-ia',
+        title: 'Finanças IA',
+        technologies: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI GPT-4o', 'Tailwind'],
+        status: 'production',
+        links: { demo: 'https://financas-ia.vercel.app' }
+    },
+    'mural-bicos': {
+        id: 'mural-bicos',
+        title: 'Mural de Bicos',
+        technologies: ['React', 'Supabase', 'Tailwind', 'Vite'],
+        status: 'production',
+        links: { demo: 'https://muraldebicos.com.br' }
+    },
+    'prompt-agent': {
+        id: 'prompt-agent',
+        title: 'Prompt Agent',
+        technologies: ['Python', 'Streamlit', 'OpenAI', 'SQLite', 'LangChain'],
+        status: 'demo',
+        links: { github: 'https://github.com/GabrielGomesDevBr/prompt_agent' }
+    },
+    'psicoia-pro': {
+        id: 'psicoia-pro',
+        title: 'PsicoIA Pro',
+        technologies: ['React', 'Node.js', 'OpenAI GPT-4', 'DOCX Export'],
+        status: 'demo',
+        links: {}
+    },
+    'llm-local': {
+        id: 'llm-local',
+        title: 'Interface LLM Local',
+        technologies: ['Python', 'Streamlit', 'Ollama'],
+        status: 'demo',
+        links: { github: 'https://github.com/GabrielGomesDevBr/interface_llm_local' }
+    },
+    'cliniagenda': {
+        id: 'cliniagenda',
+        title: 'CliniAgenda',
+        technologies: ['Node.js', 'PostgreSQL', 'JWT', 'Bcrypt', 'Helmet'],
+        status: 'demo',
+        links: { github: 'https://github.com/GabrielGomesDevBr/agendamento' }
+    }
+}
 
 function TechBadge({ tech }) {
     return (
@@ -10,25 +64,21 @@ function TechBadge({ tech }) {
     )
 }
 
-function StatusBadge({ status }) {
+function StatusBadge({ status, t }) {
     const styles = {
         production: 'bg-green-100 text-green-700 border-green-200',
         demo: 'bg-yellow-100 text-yellow-700 border-yellow-200'
-    }
-    const labels = {
-        production: 'Em Produção',
-        demo: 'Demo'
     }
 
     return (
         <span className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full border ${styles[status]}`}>
             <span className={`w-1.5 h-1.5 rounded-full ${status === 'production' ? 'bg-green-500' : 'bg-yellow-500'}`} />
-            {labels[status]}
+            {t.projects.status[status]}
         </span>
     )
 }
 
-function FeaturedProjectCard({ project }) {
+function FeaturedProjectCard({ project, projectText, t }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -44,24 +94,24 @@ function FeaturedProjectCard({ project }) {
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                             <div className="flex items-center gap-2 text-primary-600">
                                 <Star size={20} fill="currentColor" />
-                                <span className="font-bold text-sm">Projeto Principal</span>
+                                <span className="font-bold text-sm">{t.projects.mainProject}</span>
                             </div>
-                            <StatusBadge status={project.status} />
+                            <StatusBadge status={project.status} t={t} />
                         </div>
 
                         <h3 className="text-3xl md:text-4xl font-extrabold text-surface-900 mb-2">
                             {project.title}
                         </h3>
                         <p className="text-lg text-primary-600 font-semibold mb-4">
-                            {project.subtitle}
+                            {projectText.subtitle}
                         </p>
                         <p className="text-surface-600 mb-6 leading-relaxed">
-                            {project.description}
+                            {projectText.description}
                         </p>
 
                         {/* Highlights */}
                         <div className="space-y-2 mb-6">
-                            {project.highlights.slice(0, 4).map((highlight, index) => (
+                            {projectText.highlights.slice(0, 4).map((highlight, index) => (
                                 <div key={index} className="flex items-start gap-2">
                                     <CheckCircle2 size={18} className="text-green-500 mt-0.5 flex-shrink-0" />
                                     <span className="text-sm text-surface-600">{highlight}</span>
@@ -86,7 +136,7 @@ function FeaturedProjectCard({ project }) {
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
                                 >
                                     <ExternalLink size={18} />
-                                    Ver Aplicação
+                                    {t.projects.viewApp}
                                 </a>
                             )}
                             {project.links.info && (
@@ -96,7 +146,7 @@ function FeaturedProjectCard({ project }) {
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-surface-100 text-surface-700 font-bold rounded-xl hover:bg-surface-200 transition-colors"
                                 >
-                                    Saiba Mais
+                                    {t.projects.learnMore}
                                 </a>
                             )}
                         </div>
@@ -107,17 +157,17 @@ function FeaturedProjectCard({ project }) {
                         <div className="bg-gradient-to-br from-primary-50 to-purple-50 rounded-2xl p-6 text-center">
                             <Users size={32} className="text-primary-500 mx-auto mb-3" />
                             <div className="text-3xl font-extrabold text-surface-900">{project.metrics.patients}</div>
-                            <div className="text-sm text-surface-500 font-medium">Pacientes</div>
+                            <div className="text-sm text-surface-500 font-medium">{t.projects.metrics.patients}</div>
                         </div>
                         <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 text-center">
                             <Building2 size={32} className="text-purple-500 mx-auto mb-3" />
                             <div className="text-3xl font-extrabold text-surface-900">{project.metrics.clinics}</div>
-                            <div className="text-sm text-surface-500 font-medium">Clínicas</div>
+                            <div className="text-sm text-surface-500 font-medium">{t.projects.metrics.clinics}</div>
                         </div>
                         <div className="col-span-2 bg-gradient-to-br from-surface-50 to-primary-50 rounded-2xl p-6 text-center">
                             <Code2 size={32} className="text-primary-600 mx-auto mb-3" />
                             <div className="text-3xl font-extrabold text-surface-900">{project.metrics.lines}</div>
-                            <div className="text-sm text-surface-500 font-medium">Linhas de Código</div>
+                            <div className="text-sm text-surface-500 font-medium">{t.projects.metrics.lines}</div>
                         </div>
                     </div>
                 </div>
@@ -126,7 +176,7 @@ function FeaturedProjectCard({ project }) {
     )
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, projectText, t, index }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -143,20 +193,20 @@ function ProjectCard({ project, index }) {
                             {project.title}
                         </h3>
                         <p className="text-sm text-primary-600 font-medium">
-                            {project.subtitle}
+                            {projectText.subtitle}
                         </p>
                     </div>
-                    <StatusBadge status={project.status} />
+                    <StatusBadge status={project.status} t={t} />
                 </div>
 
                 <p className="text-surface-600 text-sm mb-4 line-clamp-2">
-                    {project.description}
+                    {projectText.description}
                 </p>
 
                 {/* Highlights */}
                 <div className="space-y-1.5 mb-4">
-                    {project.highlights.slice(0, 3).map((highlight, index) => (
-                        <div key={index} className="flex items-start gap-2">
+                    {projectText.highlights.slice(0, 3).map((highlight, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
                             <CheckCircle2 size={14} className="text-green-500 mt-0.5 flex-shrink-0" />
                             <span className="text-xs text-surface-500">{highlight}</span>
                         </div>
@@ -187,7 +237,7 @@ function ProjectCard({ project, index }) {
                             className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary-500 text-white text-sm font-semibold rounded-lg hover:bg-primary-600 transition-colors"
                         >
                             <ExternalLink size={14} />
-                            Demo
+                            {t.projects.demo}
                         </a>
                     )}
                     {project.links.github && (
@@ -208,6 +258,18 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
+    const { t, tProjects } = useLanguage()
+
+    const featuredProject = projectsBase.abaplay
+    const otherProjects = [
+        projectsBase['financas-ia'],
+        projectsBase['mural-bicos'],
+        projectsBase['prompt-agent'],
+        projectsBase['psicoia-pro'],
+        projectsBase['llm-local'],
+        projectsBase['cliniagenda']
+    ]
+
     return (
         <section id="projects" className="section-padding bg-white">
             <div className="container-custom">
@@ -220,24 +282,34 @@ export default function Projects() {
                     className="text-center max-w-3xl mx-auto mb-12"
                 >
                     <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 font-semibold rounded-full text-sm mb-4">
-                        Portfólio
+                        {t.projects.badge}
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 mb-4">
-                        Projetos
-                        <span className="text-gradient"> Destacados</span>
+                        {t.projects.title}
+                        <span className="text-gradient">{t.projects.titleHighlight}</span>
                     </h2>
                     <p className="text-lg text-surface-500">
-                        Aplicações completas desenvolvidas do zero, algumas já em produção com usuários reais.
+                        {t.projects.description}
                     </p>
                 </motion.div>
 
                 {/* Featured Project */}
-                <FeaturedProjectCard project={featuredProject} />
+                <FeaturedProjectCard
+                    project={featuredProject}
+                    projectText={tProjects.abaplay}
+                    t={t}
+                />
 
                 {/* Other Projects Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {otherProjects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} />
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            projectText={tProjects[project.id]}
+                            t={t}
+                            index={index}
+                        />
                     ))}
                 </div>
             </div>

@@ -1,39 +1,44 @@
 import { motion } from 'framer-motion'
 import { Mail, Linkedin, Github, Download, Send, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { generateCV } from '../utils/generateCV'
-
-const contactLinks = [
-    {
-        icon: Mail,
-        label: 'Email',
-        value: 'gabrielgomesdevbr@gmail.com',
-        href: 'mailto:gabrielgomesdevbr@gmail.com',
-        color: 'from-red-500 to-orange-500'
-    },
-    {
-        icon: Linkedin,
-        label: 'LinkedIn',
-        value: '/in/gabrielgomesdevbr',
-        href: 'https://linkedin.com/in/gabrielgomesdevbr',
-        color: 'from-blue-500 to-blue-600'
-    },
-    {
-        icon: Github,
-        label: 'GitHub',
-        value: 'GabrielGomesDevBr',
-        href: 'https://github.com/GabrielGomesDevBr',
-        color: 'from-gray-700 to-gray-900'
-    },
-    {
-        icon: Phone,
-        label: 'WhatsApp',
-        value: '(11) 94602-0901',
-        href: 'https://wa.me/5511946020901?text=Olá Gabriel! Vi seu portfólio e gostaria de conversar.',
-        color: 'from-green-500 to-green-600'
-    }
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Contact() {
+    const { t, language } = useLanguage()
+
+    const contactLinks = [
+        {
+            icon: Mail,
+            label: 'Email',
+            value: 'gabrielgomesdevbr@gmail.com',
+            href: 'mailto:gabrielgomesdevbr@gmail.com',
+            color: 'from-red-500 to-orange-500'
+        },
+        {
+            icon: Linkedin,
+            label: 'LinkedIn',
+            value: '/in/gabrielgomesdevbr',
+            href: 'https://linkedin.com/in/gabrielgomesdevbr',
+            color: 'from-blue-500 to-blue-600'
+        },
+        {
+            icon: Github,
+            label: 'GitHub',
+            value: 'GabrielGomesDevBr',
+            href: 'https://github.com/GabrielGomesDevBr',
+            color: 'from-gray-700 to-gray-900'
+        },
+        {
+            icon: Phone,
+            label: 'WhatsApp',
+            value: '(11) 94602-0901',
+            href: language === 'en'
+                ? 'https://wa.me/5511946020901?text=Hi Gabriel! I saw your portfolio and would like to chat.'
+                : 'https://wa.me/5511946020901?text=Olá Gabriel! Vi seu portfólio e gostaria de conversar.',
+            color: 'from-green-500 to-green-600'
+        }
+    ]
+
     const handleDownloadCV = () => {
         generateCV()
     }
@@ -51,15 +56,14 @@ export default function Contact() {
                         className="text-center mb-12"
                     >
                         <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 font-semibold rounded-full text-sm mb-4">
-                            Contato
+                            {t.contact.badge}
                         </span>
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 mb-4">
-                            Vamos
-                            <span className="text-gradient"> trabalhar juntos?</span>
+                            {t.contact.title}
+                            <span className="text-gradient">{t.contact.titleHighlight}</span>
                         </h2>
                         <p className="text-lg text-surface-500 max-w-2xl mx-auto">
-                            Estou disponível para novos projetos, parcerias ou oportunidades de trabalho.
-                            Entre em contato e vamos conversar!
+                            {t.contact.description}
                         </p>
                     </motion.div>
 
@@ -112,11 +116,10 @@ export default function Contact() {
                         <div className="max-w-2xl mx-auto">
                             <MessageCircle size={48} className="text-white/80 mx-auto mb-6" />
                             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                                Pronto para o próximo passo?
+                                {t.contact.cta.title}
                             </h3>
                             <p className="text-white/80 mb-8 text-lg">
-                                Baixe meu currículo completo em PDF ou entre em contato diretamente.
-                                Retorno em até 24 horas!
+                                {t.contact.cta.description}
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -126,18 +129,20 @@ export default function Contact() {
                                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary-600 font-bold text-lg rounded-2xl hover:shadow-lg hover:scale-105 transition-all duration-300"
                                 >
                                     <Download size={22} />
-                                    Download Currículo PDF
+                                    {t.contact.cta.downloadCV}
                                 </button>
 
                                 {/* WhatsApp Button */}
                                 <a
-                                    href="https://wa.me/5511946020901?text=Olá Gabriel! Vi seu portfólio e gostaria de conversar."
+                                    href={language === 'en'
+                                        ? 'https://wa.me/5511946020901?text=Hi Gabriel! I saw your portfolio and would like to chat.'
+                                        : 'https://wa.me/5511946020901?text=Olá Gabriel! Vi seu portfólio e gostaria de conversar.'}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 text-white font-bold text-lg rounded-2xl hover:bg-green-600 hover:shadow-lg transition-all duration-300"
                                 >
                                     <Phone size={22} />
-                                    WhatsApp
+                                    {t.contact.cta.whatsapp}
                                 </a>
                             </div>
 
@@ -148,7 +153,7 @@ export default function Contact() {
                                     className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
                                 >
                                     <Send size={16} />
-                                    <span className="text-sm">ou envie um email</span>
+                                    <span className="text-sm">{t.contact.cta.email}</span>
                                 </a>
                             </div>
                         </div>
@@ -163,7 +168,7 @@ export default function Contact() {
                         className="flex items-center justify-center gap-2 text-surface-400 mt-8"
                     >
                         <MapPin size={18} />
-                        <span>São Paulo, SP • Disponível para trabalho remoto</span>
+                        <span>{t.contact.location}</span>
                     </motion.div>
                 </div>
             </div>

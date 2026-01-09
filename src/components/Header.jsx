@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Download, Github, Linkedin, Mail } from 'lucide-react'
-
-const navLinks = [
-    { name: 'Início', href: '#hero' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projetos', href: '#projects' },
-    { name: 'Contato', href: '#contact' }
-]
+import { useLanguage } from '../context/LanguageContext'
+import LanguageSelector from './LanguageSelector'
+import { generateCV } from '../utils/generateCV'
 
 export default function Header() {
+    const { t } = useLanguage()
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+    const navLinks = [
+        { name: t.nav.home, href: '#hero' },
+        { name: t.nav.about, href: '#about' },
+        { name: t.nav.skills, href: '#skills' },
+        { name: t.nav.projects, href: '#projects' },
+        { name: t.nav.contact, href: '#contact' }
+    ]
 
     useEffect(() => {
         const handleScroll = () => {
@@ -69,6 +73,7 @@ export default function Header() {
 
                     {/* Desktop CTA */}
                     <div className="hidden md:flex items-center space-x-3">
+                        <LanguageSelector />
                         <a
                             href="https://github.com/GabrielGomesDevBr"
                             target="_blank"
@@ -85,23 +90,25 @@ export default function Header() {
                         >
                             <Linkedin size={20} />
                         </a>
-                        <a
-                            href="#contact"
-                            onClick={(e) => handleNavClick(e, '#contact')}
+                        <button
+                            onClick={generateCV}
                             className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-semibold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
                         >
                             <Download size={18} />
-                            <span>Currículo</span>
-                        </a>
+                            <span>{t.nav.resume}</span>
+                        </button>
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden p-2 text-surface-600 hover:text-surface-900 hover:bg-surface-100 rounded-lg transition-colors"
-                    >
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    <div className="flex items-center gap-2 md:hidden">
+                        <LanguageSelector />
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="p-2 text-surface-600 hover:text-surface-900 hover:bg-surface-100 rounded-lg transition-colors"
+                        >
+                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
             </nav>
 

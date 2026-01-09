@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion'
 import { MapPin, Calendar, Briefcase, Award, GraduationCap } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
-const highlights = [
-    { icon: Briefcase, text: 'Prompt Engineer na Alignerr & Outlier' },
-    { icon: Award, text: 'Certificações em LangChain & IA' },
-    { icon: GraduationCap, text: 'Eng. de Software - Cruzeiro do Sul' }
-]
+const highlightIcons = [Briefcase, Award, GraduationCap]
 
 export default function About() {
+    const { t } = useLanguage()
+
+    const highlights = t.about.highlights.map((text, i) => ({
+        icon: highlightIcons[i],
+        text
+    }))
+
     return (
         <section id="about" className="section-padding bg-white">
             <div className="container-custom">
@@ -42,22 +46,22 @@ export default function About() {
                                             Gabriel Gomes
                                         </h3>
                                         <p className="text-primary-600 font-semibold mb-4">
-                                            Engenheiro de Software
+                                            {t.about.role}
                                         </p>
 
                                         {/* Quick Info */}
                                         <div className="w-full space-y-3">
                                             <div className="flex items-center gap-3 text-surface-600">
                                                 <MapPin size={18} className="text-primary-500" />
-                                                <span>São Paulo, SP</span>
+                                                <span>{t.about.location}</span>
                                             </div>
                                             <div className="flex items-center gap-3 text-surface-600">
                                                 <Calendar size={18} className="text-primary-500" />
-                                                <span>+2 anos de experiência</span>
+                                                <span>{t.about.experience}</span>
                                             </div>
                                             <div className="flex items-center gap-3 text-surface-600">
                                                 <Briefcase size={18} className="text-primary-500" />
-                                                <span>Disponível para projetos</span>
+                                                <span>{t.about.available}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +78,7 @@ export default function About() {
                             >
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                                    <span className="text-sm font-semibold text-surface-700">Produtos em Produção</span>
+                                    <span className="text-sm font-semibold text-surface-700">{t.about.productionBadge}</span>
                                 </div>
                             </motion.div>
 
@@ -88,7 +92,7 @@ export default function About() {
                             >
                                 <div className="text-white text-center">
                                     <span className="text-xl font-bold">9+</span>
-                                    <span className="text-sm ml-1">anos em gestão</span>
+                                    <span className="text-sm ml-1">{t.about.managementBadge}</span>
                                 </div>
                             </motion.div>
                         </div>
@@ -102,36 +106,18 @@ export default function About() {
                         viewport={{ once: true }}
                     >
                         <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 font-semibold rounded-full text-sm mb-4">
-                            Sobre Mim
+                            {t.about.badge}
                         </span>
 
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-900 mb-6">
-                            Desenvolvendo soluções
-                            <span className="text-gradient"> do zero à produção</span>
+                            {t.about.title}
+                            <span className="text-gradient">{t.about.titleHighlight}</span>
                         </h2>
 
                         <div className="space-y-4 text-lg text-surface-600 leading-relaxed">
-                            <p>
-                                <strong className="text-surface-900">Engenheiro de Software</strong> com especialização em
-                                <strong className="text-primary-600"> Inteligência Artificial</strong> e Ciência de Dados.
-                                Experiência na criação de produtos digitais do conceito ao desenvolvimento, com foco em
-                                resolver problemas complexos através de soluções baseadas em LLMs.
-                            </p>
-
-                            <p>
-                                Atuei como <strong className="text-surface-900">Prompt Engineer</strong> na
-                                <strong className="text-primary-600"> Alignerr</strong> e <strong className="text-primary-600">Outlier</strong>,
-                                otimizando modelos de linguagem e desenvolvendo sistemas conversacionais inteligentes.
-                                Meu projeto principal, <strong className="text-primary-600">ABAplay</strong>, é uma plataforma
-                                SaaS que atende <strong className="text-surface-900">300+ pacientes</strong> em
-                                <strong className="text-surface-900"> 4 clínicas</strong>.
-                            </p>
-
-                            <p>
-                                Possuo background de <strong className="text-surface-900">9 anos em gestão</strong> como
-                                Diretor Administrativo, combinando visão de negócio com habilidades técnicas para
-                                entregar produtos inovadores.
-                            </p>
+                            <p dangerouslySetInnerHTML={{ __html: t.about.bio1 }} />
+                            <p dangerouslySetInnerHTML={{ __html: t.about.bio2 }} />
+                            <p dangerouslySetInnerHTML={{ __html: t.about.bio3 }} />
                         </div>
 
                         {/* Highlights */}
@@ -157,15 +143,15 @@ export default function About() {
                         <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-surface-200">
                             <div>
                                 <div className="text-3xl font-extrabold text-gradient">2+</div>
-                                <div className="text-sm text-surface-500 font-medium">Anos Dev</div>
+                                <div className="text-sm text-surface-500 font-medium">{t.about.stats.years}</div>
                             </div>
                             <div>
                                 <div className="text-3xl font-extrabold text-gradient">13+</div>
-                                <div className="text-sm text-surface-500 font-medium">Projetos</div>
+                                <div className="text-sm text-surface-500 font-medium">{t.about.stats.projects}</div>
                             </div>
                             <div>
                                 <div className="text-3xl font-extrabold text-gradient">100%</div>
-                                <div className="text-sm text-surface-500 font-medium">Solo Dev</div>
+                                <div className="text-sm text-surface-500 font-medium">{t.about.stats.solo}</div>
                             </div>
                         </div>
                     </motion.div>

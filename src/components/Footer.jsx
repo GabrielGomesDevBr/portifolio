@@ -1,6 +1,8 @@
 import { Heart, Code2 } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
+    const { t } = useLanguage()
     const currentYear = new Date().getFullYear()
 
     return (
@@ -14,7 +16,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <span className="font-bold text-lg">Gabriel Gomes</span>
-                            <p className="text-sm text-surface-400">Desenvolvedor Full-Stack</p>
+                            <p className="text-sm text-surface-400">{t.footer.role}</p>
                         </div>
                     </div>
 
@@ -51,12 +53,12 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-surface-400">
                     <p>
-                        © {currentYear} Gabriel Gomes. Todos os direitos reservados.
+                        © {currentYear} Gabriel Gomes. {t.footer.rights}
                     </p>
                     <p className="flex items-center gap-2">
-                        Feito com
+                        {t.footer.madeWith}
                         <Heart size={16} className="text-red-500" fill="currentColor" />
-                        usando
+                        {t.footer.using}
                         <Code2 size={16} className="text-primary-400" />
                         React + Tailwind
                     </p>

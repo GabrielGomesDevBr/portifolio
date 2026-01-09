@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Users, Code2, Building2, Sparkles, Award } from 'lucide-react'
-
-const metrics = [
-    { icon: Users, value: '300+', label: 'Pacientes em Produção' },
-    { icon: Code2, value: '426K+', label: 'Linhas de Código' },
-    { icon: Building2, value: '4', label: 'Clínicas Ativas' },
-    { icon: Award, value: '9+', label: 'Anos em Gestão' }
-]
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Hero() {
+    const { t } = useLanguage()
+
+    const metrics = [
+        { icon: Users, value: '300+', label: t.hero.metrics.patients },
+        { icon: Code2, value: '426K+', label: t.hero.metrics.lines },
+        { icon: Building2, value: '4', label: t.hero.metrics.clinics },
+        { icon: Award, value: '9+', label: t.hero.metrics.management }
+    ]
+
     const handleScrollToProjects = () => {
         document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
     }
@@ -46,7 +49,7 @@ export default function Hero() {
                     >
                         <Sparkles size={16} className="text-primary-500" />
                         <span className="text-sm font-medium text-primary-700">
-                            Disponível para novos projetos
+                            {t.hero.badge}
                         </span>
                     </motion.div>
 
@@ -57,7 +60,7 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-surface-900 mb-6"
                     >
-                        Gabriel Gomes
+                        {t.hero.title}
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -67,9 +70,9 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4"
                     >
-                        <span className="text-gradient">Engenheiro de Software</span>
+                        <span className="text-gradient">{t.hero.subtitle1}</span>
                         <span className="text-surface-400 mx-3">|</span>
-                        <span className="text-surface-600">Especialista em IA</span>
+                        <span className="text-surface-600">{t.hero.subtitle2}</span>
                     </motion.p>
 
                     {/* Description */}
@@ -79,9 +82,9 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="text-lg sm:text-xl text-surface-500 max-w-2xl mx-auto mb-10"
                     >
-                        Transformo ideias em produtos digitais completos.
+                        {t.hero.description}
                         <br className="hidden sm:block" />
-                        Do conceito à produção, <span className="text-primary-600 font-semibold">100% solo</span>.
+                        {t.hero.descriptionHighlight}<span className="text-primary-600 font-semibold">{t.hero.descriptionBold}</span>.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -95,13 +98,13 @@ export default function Hero() {
                             onClick={handleScrollToProjects}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold text-lg rounded-2xl hover:shadow-glow-lg transition-all duration-300 hover:scale-105"
                         >
-                            Ver Projetos
+                            {t.hero.cta1}
                         </button>
                         <button
                             onClick={handleScrollToContact}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-surface-700 font-bold text-lg rounded-2xl border-2 border-surface-200 hover:border-primary-300 hover:text-primary-600 transition-all duration-300"
                         >
-                            Entrar em Contato
+                            {t.hero.cta2}
                         </button>
                     </motion.div>
 
@@ -148,7 +151,7 @@ export default function Hero() {
                         onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
                         className="flex flex-col items-center gap-2 text-surface-400 hover:text-primary-500 transition-colors"
                     >
-                        <span className="text-sm font-medium">Scroll</span>
+                        <span className="text-sm font-medium">{t.hero.scroll}</span>
                         <ArrowDown size={20} className="animate-bounce" />
                     </button>
                 </motion.div>
