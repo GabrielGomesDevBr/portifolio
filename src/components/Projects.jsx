@@ -17,14 +17,14 @@ const projectsBase = {
         title: 'Finanças IA',
         technologies: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI GPT-4o', 'Tailwind'],
         status: 'production',
-        links: { demo: 'https://financas-ia.vercel.app' }
+        links: { demo: 'https://financas-ia-chi.vercel.app/' }
     },
     'mural-bicos': {
         id: 'mural-bicos',
         title: 'Mural de Bicos',
         technologies: ['React', 'Supabase', 'Tailwind', 'Vite'],
         status: 'production',
-        links: { demo: 'https://muraldebicos.com.br' }
+        links: { demo: 'https://mural-de-bicos.onrender.com/' }
     },
     'prompt-agent': {
         id: 'prompt-agent',
