@@ -38,7 +38,7 @@ const projectsBase = {
         title: 'PsicoIA Pro',
         technologies: ['React', 'Node.js', 'OpenAI GPT-4', 'DOCX Export'],
         status: 'demo',
-        links: {}
+        links: { github: 'https://github.com/GabrielGomesDevBr/psicoia_pro' }
     },
     'llm-local': {
         id: 'llm-local',
