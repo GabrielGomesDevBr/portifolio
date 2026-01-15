@@ -3,10 +3,10 @@ export const skillCategories = [
         title: 'IA & LLMs',
         icon: 'Brain',
         skills: [
+            { name: 'Multi-Agent Systems (Orchestrator)', level: 90 },
             { name: 'Prompt Engineering (GPT, Claude)', level: 95 },
-            { name: 'OpenAI API', level: 90 },
-            { name: 'LangChain / LangGraph', level: 85 },
-            { name: 'Agentes de IA', level: 85 },
+            { name: 'OpenAI API / LangChain', level: 90 },
+            { name: 'MCP Tools / FastAPI', level: 85 },
             { name: 'Ollama (LLMs locais)', level: 80 }
         ]
     },

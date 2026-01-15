@@ -64,11 +64,11 @@ export const translations = {
             description: 'Stack completa para desenvolver aplicações modernas, escaláveis e com IA integrada.',
             differentials: 'Diferenciais Técnicos',
             softSkills: [
+                { title: 'Multi-Agent Systems', description: 'Arquitetura com orquestrador + 5 agentes especializados e MCP Tools' },
                 { title: 'Prompt Engineering', description: 'Experiência profissional na Alignerr e Outlier otimizando LLMs' },
                 { title: 'Arquitetura Multi-tenant', description: 'Sistemas SaaS com isolamento de dados e escalabilidade' },
                 { title: 'Liderança & Gestão', description: '9 anos como Diretor Administrativo gerenciando equipes' },
-                { title: 'Segurança de Aplicações', description: 'JWT, bcrypt, RLS, rate limiting, prepared statements' },
-                { title: 'Autonomia & Proatividade', description: 'Projetos completos desenvolvidos 100% solo, do conceito à produção' }
+                { title: 'Segurança de Aplicações', description: 'JWT, bcrypt, RLS, rate limiting, prepared statements' }
             ]
         },
 
@@ -184,11 +184,11 @@ export const translations = {
             description: 'Full stack to build modern, scalable applications with integrated AI.',
             differentials: 'Technical Differentiators',
             softSkills: [
+                { title: 'Multi-Agent Systems', description: 'Orchestrator architecture + 5 specialized agents with MCP Tools' },
                 { title: 'Prompt Engineering', description: 'Professional experience at Alignerr and Outlier optimizing LLMs' },
                 { title: 'Multi-tenant Architecture', description: 'SaaS systems with data isolation and scalability' },
                 { title: 'Leadership & Management', description: '9 years as Administrative Director managing teams' },
-                { title: 'Application Security', description: 'JWT, bcrypt, RLS, rate limiting, prepared statements' },
-                { title: 'Autonomy & Proactivity', description: 'Complete projects developed 100% solo, from concept to production' }
+                { title: 'Application Security', description: 'JWT, bcrypt, RLS, rate limiting, prepared statements' }
             ]
         },
 
@@ -248,7 +248,7 @@ export const projectTranslations = {
             highlights: [
                 'Arquitetura multi-tenant com isolamento por clinic_id',
                 'WebSocket para chat em tempo real (terapeuta-pais)',
-                'Sistema de prompting ABA metodologicamente preciso',
+                'Sistema Multi-Agente com IA para insights e análises',
                 'Geração de relatórios profissionais em PDF'
             ]
         },
@@ -315,7 +315,7 @@ export const projectTranslations = {
             highlights: [
                 'Multi-tenant architecture with clinic_id isolation',
                 'WebSocket for real-time chat (therapist-parents)',
-                'Methodologically precise ABA prompting system',
+                'Multi-Agent AI System for insights and analytics',
                 'Professional PDF report generation'
             ]
         },

@@ -9,7 +9,7 @@ const projectsBase = {
         title: 'ABAplay',
         technologies: ['React', 'Node.js', 'PostgreSQL', 'Socket.IO', 'OpenAI', 'Tailwind'],
         status: 'production',
-        metrics: { patients: '300+', clinics: '4', lines: '85K+' },
+        metrics: { patients: '300+', clinics: '4', lines: '145K+' },
         links: { demo: 'https://abaplay.app.br', info: 'https://abaplay.app.br' }
     },
     'financas-ia': {

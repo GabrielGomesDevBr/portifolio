@@ -27,10 +27,10 @@ const cvData = {
                 period: '2023 - Presente',
                 description: 'Plataforma SaaS multi-tenant para clínicas de terapia infantil. Sistema completo com gestão de pacientes, sessões ABA, chat em tempo real, relatórios automatizados e integração com IA.',
                 achievements: [
-                    '300+ pacientes ativos em produção',
-                    '4 clínicas utilizando a plataforma',
+                    '300+ pacientes ativos, 145K+ linhas de código',
                     'Arquitetura multi-tenant com isolamento por clinic_id',
-                    'Chat em tempo real com Socket.IO'
+                    'Sistema Multi-Agente com IA para insights clínicos',
+                    'Chat em tempo real + relatórios PDF automatizados'
                 ]
             },
             {
@@ -68,7 +68,7 @@ const cvData = {
             }
         ],
         skills: {
-            'IA & LLMs': 'Prompt Engineering, OpenAI API, LangChain, Agentes de IA, Ollama',
+            'IA & LLMs': 'Multi-Agent Systems, Prompt Engineering, OpenAI API, LangChain, MCP Tools, FastAPI',
             'Frontend': 'React, Next.js, TypeScript, Tailwind CSS, JavaScript',
             'Backend': 'Node.js, Express, Python, Socket.IO, REST APIs',
             'Database': 'PostgreSQL, Supabase, Firebase, SQL',
@@ -116,10 +116,10 @@ const cvData = {
                 period: '2023 - Present',
                 description: 'Multi-tenant SaaS platform for pediatric therapy clinics. Complete system with patient management, ABA sessions, real-time chat, automated reports, and AI integration.',
                 achievements: [
-                    '300+ active patients in production',
-                    '4 clinics using the platform',
+                    '300+ active patients, 145K+ lines of code',
                     'Multi-tenant architecture with clinic_id isolation',
-                    'Real-time chat with Socket.IO'
+                    'Multi-Agent AI System for clinical insights',
+                    'Real-time chat + automated PDF reports'
                 ]
             },
             {
@@ -157,7 +157,7 @@ const cvData = {
             }
         ],
         skills: {
-            'AI & LLMs': 'Prompt Engineering, OpenAI API, LangChain, AI Agents, Ollama',
+            'AI & LLMs': 'Multi-Agent Systems, Prompt Engineering, OpenAI API, LangChain, MCP Tools, FastAPI',
             'Frontend': 'React, Next.js, TypeScript, Tailwind CSS, JavaScript',
             'Backend': 'Node.js, Express, Python, Socket.IO, REST APIs',
             'Database': 'PostgreSQL, Supabase, Firebase, SQL',
