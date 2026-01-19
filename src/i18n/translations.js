@@ -91,7 +91,9 @@ export const translations = {
                 patients: 'Pacientes',
                 clinics: 'Clínicas',
                 lines: 'Linhas de Código'
-            }
+            },
+            seeDetails: 'Ver Detalhes',
+            close: 'Fechar'
         },
 
         // Contact
@@ -211,7 +213,9 @@ export const translations = {
                 patients: 'Patients',
                 clinics: 'Clinics',
                 lines: 'Lines of Code'
-            }
+            },
+            seeDetails: 'See Details',
+            close: 'Close'
         },
 
         // Contact

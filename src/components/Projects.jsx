@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { ExternalLink, Github, Users, Building2, Code2, CheckCircle2, Star } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ExternalLink, Github, Users, Building2, Code2, CheckCircle2, Star, X } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 // Base project data (structure only, no text)
@@ -10,7 +11,7 @@ const projectsBase = {
         technologies: ['React', 'Node.js', 'PostgreSQL', 'Socket.IO', 'OpenAI', 'Tailwind'],
         status: 'production',
         metrics: { patients: '300+', clinics: '4', lines: '145K+' },
-        links: { demo: 'https://abaplay.app.br', info: 'https://abaplay.app.br' }
+        links: { demo: 'https://www.abaplay.app.br/info', info: 'https://www.abaplay.app.br/info' }
     },
     'financas-ia': {
         id: 'financas-ia',
@@ -176,14 +177,124 @@ function FeaturedProjectCard({ project, projectText, t }) {
     )
 }
 
-function ProjectCard({ project, projectText, t, index }) {
+function ProjectModal({ project, projectText, t, onClose }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={onClose}
+        >
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                className="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Close button */}
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 z-10 p-2 bg-surface-100 hover:bg-surface-200 rounded-full transition-colors"
+                >
+                    <X size={20} className="text-surface-600" />
+                </button>
+
+                {/* Content */}
+                <div className="p-8 overflow-y-auto max-h-[90vh]">
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-4 mb-4 pr-10">
+                        <div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-surface-900 mb-1">
+                                {project.title}
+                            </h3>
+                            <p className="text-lg text-primary-600 font-semibold">
+                                {projectText.subtitle}
+                            </p>
+                        </div>
+                        <StatusBadge status={project.status} t={t} />
+                    </div>
+
+                    {/* Full Description */}
+                    <p className="text-surface-600 mb-6 leading-relaxed">
+                        {projectText.description}
+                    </p>
+
+                    {/* All Highlights */}
+                    <div className="mb-6">
+                        <h4 className="text-sm font-semibold text-surface-900 uppercase tracking-wider mb-3">
+                            Highlights
+                        </h4>
+                        <div className="space-y-2">
+                            {projectText.highlights.map((highlight, idx) => (
+                                <div key={idx} className="flex items-start gap-3">
+                                    <CheckCircle2 size={18} className="text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span className="text-surface-600">{highlight}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* All Technologies */}
+                    <div className="mb-6">
+                        <h4 className="text-sm font-semibold text-surface-900 uppercase tracking-wider mb-3">
+                            Tech Stack
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((tech) => (
+                                <TechBadge key={tech} tech={tech} />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap gap-3 pt-4 border-t border-surface-100">
+                        {project.links.demo && (
+                            <a
+                                href={project.links.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
+                            >
+                                <ExternalLink size={18} />
+                                {t.projects.demo}
+                            </a>
+                        )}
+                        {project.links.github && (
+                            <a
+                                href={project.links.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-surface-200 text-surface-700 font-bold rounded-xl hover:bg-surface-300 transition-colors"
+                            >
+                                <Github size={18} />
+                                GitHub
+                            </a>
+                        )}
+                        <button
+                            onClick={onClose}
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-surface-100 text-surface-600 font-semibold rounded-xl hover:bg-surface-200 transition-colors ml-auto"
+                        >
+                            {t.projects.close}
+                        </button>
+                    </div>
+                </div>
+            </motion.div>
+        </motion.div>
+    )
+}
+
+function ProjectCard({ project, projectText, t, index, onClick }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="group bg-white rounded-2xl border border-surface-200 overflow-hidden hover:border-primary-300 hover:shadow-xl transition-all duration-300"
+            className="group bg-white rounded-2xl border border-surface-200 overflow-hidden hover:border-primary-300 hover:shadow-xl transition-all duration-300 cursor-pointer"
+            onClick={onClick}
         >
             {/* Header */}
             <div className="p-6 pb-4">
@@ -235,6 +346,7 @@ function ProjectCard({ project, projectText, t, index }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary-500 text-white text-sm font-semibold rounded-lg hover:bg-primary-600 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <ExternalLink size={14} />
                             {t.projects.demo}
@@ -246,19 +358,25 @@ function ProjectCard({ project, projectText, t, index }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 px-4 py-2 bg-surface-200 text-surface-700 text-sm font-semibold rounded-lg hover:bg-surface-300 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <Github size={14} />
                             GitHub
                         </a>
                     )}
                 </div>
+                <span className="text-xs text-primary-500 font-medium group-hover:text-primary-600">
+                    {t.projects.seeDetails} →
+                </span>
             </div>
         </motion.div>
     )
 }
 
+
 export default function Projects() {
     const { t, tProjects } = useLanguage()
+    const [selectedProject, setSelectedProject] = useState(null)
 
     const featuredProject = projectsBase.abaplay
     const otherProjects = [
@@ -269,6 +387,8 @@ export default function Projects() {
         projectsBase['llm-local'],
         projectsBase['cliniagenda']
     ]
+
+    const handleCloseModal = () => setSelectedProject(null)
 
     return (
         <section id="projects" className="section-padding bg-white">
@@ -309,10 +429,24 @@ export default function Projects() {
                             projectText={tProjects[project.id]}
                             t={t}
                             index={index}
+                            onClick={() => setSelectedProject(project)}
                         />
                     ))}
                 </div>
             </div>
+
+            {/* Project Modal */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <ProjectModal
+                        project={selectedProject}
+                        projectText={tProjects[selectedProject.id]}
+                        t={t}
+                        onClose={handleCloseModal}
+                    />
+                )}
+            </AnimatePresence>
         </section>
     )
 }
+
