@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, Github, Users, Building2, Code2, CheckCircle2, Star, X } from 'lucide-react'
+import { ExternalLink, Github, Users, Building2, Code2, CheckCircle2, Star, X, Lock, Layers, Shield, FileText } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+
+const iconMap = { Users, Building2, Code2, Layers, Shield, FileText }
 
 // Base project data (structure only, no text)
 const projectsBase = {
@@ -10,8 +12,45 @@ const projectsBase = {
         title: 'ABAplay',
         technologies: ['React', 'Node.js', 'PostgreSQL', 'Socket.IO', 'OpenAI', 'Tailwind'],
         status: 'production',
-        metrics: { patients: '300+', clinics: '4', lines: '145K+' },
+        metrics: [
+            { icon: 'Users', value: '300+', labelKey: 'patients', gradient: 'from-primary-50 to-purple-50', iconColor: 'text-primary-500' },
+            { icon: 'Building2', value: '4', labelKey: 'clinics', gradient: 'from-purple-50 to-pink-50', iconColor: 'text-purple-500' },
+            { icon: 'Code2', value: '145K+', labelKey: 'lines', gradient: 'from-surface-50 to-primary-50', iconColor: 'text-primary-600', colSpan: 2 }
+        ],
         links: { demo: 'https://www.abaplay.app.br/info', info: 'https://www.abaplay.app.br/info' }
+    },
+    lumnipsi: {
+        id: 'lumnipsi',
+        title: 'LumniPsi',
+        technologies: ['TypeScript', 'React', 'Express', 'Prisma', 'PostgreSQL', 'LangChain', 'Tailwind'],
+        status: 'production',
+        metrics: [
+            { icon: 'Layers', value: '15+', labelKey: 'modules', gradient: 'from-emerald-50 to-teal-50', iconColor: 'text-emerald-500' },
+            { icon: 'Shield', value: '8', labelKey: 'roles', gradient: 'from-teal-50 to-cyan-50', iconColor: 'text-teal-500' },
+            { icon: 'FileText', value: '8', labelKey: 'docTypes', gradient: 'from-surface-50 to-emerald-50', iconColor: 'text-emerald-600', colSpan: 2 }
+        ],
+        links: {}
+    },
+    outreach: {
+        id: 'outreach',
+        title: 'ABAplay Outreach',
+        technologies: ['Python', 'Flask', 'React', 'TypeScript', 'Dash/Plotly', 'Ollama', 'Claude Haiku', 'Meta API', 'Resend'],
+        status: 'production',
+        links: {}
+    },
+    'operadora-hunter': {
+        id: 'operadora-hunter',
+        title: 'OperadoraHunter',
+        technologies: ['Python', 'DuckDB', 'Polars', 'Prefect', 'Playwright', 'Ollama', 'Dash/Plotly', 'Pydeck'],
+        status: 'production',
+        links: {}
+    },
+    'lead-finder': {
+        id: 'lead-finder',
+        title: 'ABAplay Lead Finder',
+        technologies: ['Python', 'Playwright', 'Streamlit', 'Ollama', 'SQLite', 'aiohttp'],
+        status: 'production',
+        links: {}
     },
     'financas-ia': {
         id: 'financas-ia',
@@ -20,40 +59,12 @@ const projectsBase = {
         status: 'production',
         links: { demo: 'https://financas-ia-chi.vercel.app/' }
     },
-    'mural-bicos': {
-        id: 'mural-bicos',
-        title: 'Mural de Bicos',
-        technologies: ['React', 'Supabase', 'Tailwind', 'Vite'],
-        status: 'production',
-        links: { demo: 'https://mural-de-bicos.onrender.com/' }
-    },
-    'prompt-agent': {
-        id: 'prompt-agent',
-        title: 'Prompt Agent',
-        technologies: ['Python', 'Streamlit', 'OpenAI', 'SQLite', 'LangChain'],
-        status: 'demo',
-        links: { github: 'https://github.com/GabrielGomesDevBr/prompt_agent' }
-    },
     'psicoia-pro': {
         id: 'psicoia-pro',
         title: 'PsicoIA Pro',
         technologies: ['React', 'Node.js', 'OpenAI GPT-4', 'DOCX Export'],
         status: 'demo',
         links: { github: 'https://github.com/GabrielGomesDevBr/psicoia_pro' }
-    },
-    'llm-local': {
-        id: 'llm-local',
-        title: 'Interface LLM Local',
-        technologies: ['Python', 'Streamlit', 'Ollama'],
-        status: 'demo',
-        links: { github: 'https://github.com/GabrielGomesDevBr/interface_llm_local' }
-    },
-    'cliniagenda': {
-        id: 'cliniagenda',
-        title: 'CliniAgenda',
-        technologies: ['Node.js', 'PostgreSQL', 'JWT', 'Bcrypt', 'Helmet'],
-        status: 'demo',
-        links: { github: 'https://github.com/GabrielGomesDevBr/agendamento' }
     }
 }
 
@@ -79,14 +90,25 @@ function StatusBadge({ status, t }) {
     )
 }
 
-function FeaturedProjectCard({ project, projectText, t }) {
+function PrivateBadge({ t }) {
+    return (
+        <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-surface-100 text-surface-500 text-sm font-medium rounded-lg">
+            <Lock size={14} />
+            {t.projects.privateCode}
+        </span>
+    )
+}
+
+function FeaturedProjectCard({ project, projectText, t, gradient = 'from-primary-500 to-purple-600' }) {
+    const hasLinks = project.links.demo || project.links.info
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-primary-500 to-purple-600 rounded-3xl p-1 shadow-2xl mb-12"
+            className={`relative bg-gradient-to-br ${gradient} rounded-3xl p-1 shadow-2xl mb-12`}
         >
             <div className="bg-white rounded-[22px] p-6 md:p-10">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -95,7 +117,7 @@ function FeaturedProjectCard({ project, projectText, t }) {
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                             <div className="flex items-center gap-2 text-primary-600">
                                 <Star size={20} fill="currentColor" />
-                                <span className="font-bold text-sm">{t.projects.mainProject}</span>
+                                <span className="font-bold text-sm">{t.projects.featuredProject}</span>
                             </div>
                             <StatusBadge status={project.status} t={t} />
                         </div>
@@ -129,47 +151,54 @@ function FeaturedProjectCard({ project, projectText, t }) {
 
                         {/* CTAs */}
                         <div className="flex flex-wrap gap-3">
-                            {project.links.demo && (
-                                <a
-                                    href={project.links.demo}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
-                                >
-                                    <ExternalLink size={18} />
-                                    {t.projects.viewApp}
-                                </a>
-                            )}
-                            {project.links.info && (
-                                <a
-                                    href={project.links.info}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-surface-100 text-surface-700 font-bold rounded-xl hover:bg-surface-200 transition-colors"
-                                >
-                                    {t.projects.learnMore}
-                                </a>
+                            {hasLinks ? (
+                                <>
+                                    {project.links.demo && (
+                                        <a
+                                            href={project.links.demo}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
+                                        >
+                                            <ExternalLink size={18} />
+                                            {t.projects.viewApp}
+                                        </a>
+                                    )}
+                                    {project.links.info && (
+                                        <a
+                                            href={project.links.info}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-surface-100 text-surface-700 font-bold rounded-xl hover:bg-surface-200 transition-colors"
+                                        >
+                                            {t.projects.learnMore}
+                                        </a>
+                                    )}
+                                </>
+                            ) : (
+                                <span className="inline-flex items-center gap-2 px-6 py-3 bg-surface-100 text-surface-500 font-semibold rounded-xl">
+                                    <Lock size={18} />
+                                    {t.projects.privateCode}
+                                </span>
                             )}
                         </div>
                     </div>
 
                     {/* Metrics */}
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-gradient-to-br from-primary-50 to-purple-50 rounded-2xl p-6 text-center">
-                            <Users size={32} className="text-primary-500 mx-auto mb-3" />
-                            <div className="text-3xl font-extrabold text-surface-900">{project.metrics.patients}</div>
-                            <div className="text-sm text-surface-500 font-medium">{t.projects.metrics.patients}</div>
-                        </div>
-                        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 text-center">
-                            <Building2 size={32} className="text-purple-500 mx-auto mb-3" />
-                            <div className="text-3xl font-extrabold text-surface-900">{project.metrics.clinics}</div>
-                            <div className="text-sm text-surface-500 font-medium">{t.projects.metrics.clinics}</div>
-                        </div>
-                        <div className="col-span-2 bg-gradient-to-br from-surface-50 to-primary-50 rounded-2xl p-6 text-center">
-                            <Code2 size={32} className="text-primary-600 mx-auto mb-3" />
-                            <div className="text-3xl font-extrabold text-surface-900">{project.metrics.lines}</div>
-                            <div className="text-sm text-surface-500 font-medium">{t.projects.metrics.lines}</div>
-                        </div>
+                        {project.metrics.map((metric, idx) => {
+                            const Icon = iconMap[metric.icon]
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`${metric.colSpan === 2 ? 'col-span-2' : ''} bg-gradient-to-br ${metric.gradient} rounded-2xl p-6 text-center`}
+                                >
+                                    <Icon size={32} className={`${metric.iconColor} mx-auto mb-3`} />
+                                    <div className="text-3xl font-extrabold text-surface-900">{metric.value}</div>
+                                    <div className="text-sm text-surface-500 font-medium">{t.projects.metrics[metric.labelKey]}</div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
@@ -178,6 +207,8 @@ function FeaturedProjectCard({ project, projectText, t }) {
 }
 
 function ProjectModal({ project, projectText, t, onClose }) {
+    const hasLinks = project.links.demo || project.links.github
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -251,27 +282,36 @@ function ProjectModal({ project, projectText, t, onClose }) {
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-3 pt-4 border-t border-surface-100">
-                        {project.links.demo && (
-                            <a
-                                href={project.links.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
-                            >
-                                <ExternalLink size={18} />
-                                {t.projects.demo}
-                            </a>
-                        )}
-                        {project.links.github && (
-                            <a
-                                href={project.links.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-surface-200 text-surface-700 font-bold rounded-xl hover:bg-surface-300 transition-colors"
-                            >
-                                <Github size={18} />
-                                GitHub
-                            </a>
+                        {hasLinks ? (
+                            <>
+                                {project.links.demo && (
+                                    <a
+                                        href={project.links.demo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white font-bold rounded-xl hover:shadow-glow transition-all duration-300 hover:scale-105"
+                                    >
+                                        <ExternalLink size={18} />
+                                        {t.projects.demo}
+                                    </a>
+                                )}
+                                {project.links.github && (
+                                    <a
+                                        href={project.links.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-surface-200 text-surface-700 font-bold rounded-xl hover:bg-surface-300 transition-colors"
+                                    >
+                                        <Github size={18} />
+                                        GitHub
+                                    </a>
+                                )}
+                            </>
+                        ) : (
+                            <span className="inline-flex items-center gap-2 px-6 py-3 bg-surface-100 text-surface-500 font-medium rounded-xl">
+                                <Lock size={18} />
+                                {t.projects.privateCode}
+                            </span>
                         )}
                         <button
                             onClick={onClose}
@@ -287,6 +327,8 @@ function ProjectModal({ project, projectText, t, onClose }) {
 }
 
 function ProjectCard({ project, projectText, t, index, onClick }) {
+    const hasLinks = project.links.demo || project.links.github
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -340,29 +382,35 @@ function ProjectCard({ project, projectText, t, index, onClick }) {
             {/* Footer */}
             <div className="px-6 py-4 bg-surface-50 border-t border-surface-100 flex items-center justify-between">
                 <div className="flex gap-2">
-                    {project.links.demo && (
-                        <a
-                            href={project.links.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary-500 text-white text-sm font-semibold rounded-lg hover:bg-primary-600 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <ExternalLink size={14} />
-                            {t.projects.demo}
-                        </a>
-                    )}
-                    {project.links.github && (
-                        <a
-                            href={project.links.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-surface-200 text-surface-700 text-sm font-semibold rounded-lg hover:bg-surface-300 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <Github size={14} />
-                            GitHub
-                        </a>
+                    {hasLinks ? (
+                        <>
+                            {project.links.demo && (
+                                <a
+                                    href={project.links.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary-500 text-white text-sm font-semibold rounded-lg hover:bg-primary-600 transition-colors"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <ExternalLink size={14} />
+                                    {t.projects.demo}
+                                </a>
+                            )}
+                            {project.links.github && (
+                                <a
+                                    href={project.links.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-surface-200 text-surface-700 text-sm font-semibold rounded-lg hover:bg-surface-300 transition-colors"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <Github size={14} />
+                                    GitHub
+                                </a>
+                            )}
+                        </>
+                    ) : (
+                        <PrivateBadge t={t} />
                     )}
                 </div>
                 <span className="text-xs text-primary-500 font-medium group-hover:text-primary-600">
@@ -378,14 +426,20 @@ export default function Projects() {
     const { t, tProjects } = useLanguage()
     const [selectedProject, setSelectedProject] = useState(null)
 
-    const featuredProject = projectsBase.abaplay
+    const featuredConfigs = [
+        { project: projectsBase.abaplay, gradient: 'from-primary-500 to-purple-600' },
+        { project: projectsBase.lumnipsi, gradient: 'from-emerald-500 to-teal-600' }
+    ]
+
+    const aiProjects = [
+        projectsBase.outreach,
+        projectsBase['operadora-hunter'],
+        projectsBase['lead-finder']
+    ]
+
     const otherProjects = [
         projectsBase['financas-ia'],
-        projectsBase['mural-bicos'],
-        projectsBase['prompt-agent'],
-        projectsBase['psicoia-pro'],
-        projectsBase['llm-local'],
-        projectsBase['cliniagenda']
+        projectsBase['psicoia-pro']
     ]
 
     const handleCloseModal = () => setSelectedProject(null)
@@ -413,22 +467,55 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                {/* Featured Project */}
-                <FeaturedProjectCard
-                    project={featuredProject}
-                    projectText={tProjects.abaplay}
-                    t={t}
-                />
+                {/* Featured Projects */}
+                {featuredConfigs.map(({ project, gradient }) => (
+                    <FeaturedProjectCard
+                        key={project.id}
+                        project={project}
+                        projectText={tProjects[project.id]}
+                        t={t}
+                        gradient={gradient}
+                    />
+                ))}
 
-                {/* Other Projects Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {otherProjects.map((project, index) => (
+                {/* AI Agents Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-8 mt-4"
+                >
+                    <span className="inline-block px-4 py-2 bg-amber-50 text-amber-700 font-semibold rounded-full text-sm mb-3">
+                        {t.projects.aiSectionTitle}
+                    </span>
+                    <p className="text-surface-500 max-w-2xl mx-auto">
+                        {t.projects.aiSectionDescription}
+                    </p>
+                </motion.div>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-10">
+                    {aiProjects.map((project, index) => (
                         <ProjectCard
                             key={project.id}
                             project={project}
                             projectText={tProjects[project.id]}
                             t={t}
                             index={index}
+                            onClick={() => setSelectedProject(project)}
+                        />
+                    ))}
+                </div>
+
+                {/* Other Projects */}
+                <div className="grid md:grid-cols-2 gap-6">
+                    {otherProjects.map((project, index) => (
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            projectText={tProjects[project.id]}
+                            t={t}
+                            index={index + aiProjects.length}
                             onClick={() => setSelectedProject(project)}
                         />
                     ))}
@@ -449,4 +536,3 @@ export default function Projects() {
         </section>
     )
 }
-

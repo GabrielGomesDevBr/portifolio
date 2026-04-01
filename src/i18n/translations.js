@@ -41,9 +41,9 @@ export const translations = {
             available: 'Disponível para projetos',
             productionBadge: 'Produtos em Produção',
             managementBadge: 'anos em gestão',
-            bio1: '<strong>Engenheiro de Software</strong> com especialização em <strong class="text-primary-600">Inteligência Artificial</strong> e Ciência de Dados. Experiência na criação de produtos digitais do conceito ao desenvolvimento, com foco em resolver problemas complexos através de soluções baseadas em LLMs.',
-            bio2: 'Atuei como <strong>Prompt Engineer</strong> na <strong class="text-primary-600">Alignerr</strong> e <strong class="text-primary-600">Outlier</strong>, otimizando modelos de linguagem e desenvolvendo sistemas conversacionais inteligentes. Meu projeto principal, <strong class="text-primary-600">ABAplay</strong>, é uma plataforma SaaS que atende <strong>300+ pacientes</strong> em <strong>4 clínicas</strong>.',
-            bio3: 'Possuo background de <strong>9 anos em gestão</strong> como Diretor Administrativo, combinando visão de negócio com habilidades técnicas para entregar produtos inovadores.',
+            bio1: '<strong>Engenheiro de Software</strong> com especialização em <strong class="text-primary-600">Inteligência Artificial</strong> e Ciência de Dados. Meu diferencial é entender fluxos empresariais e traduzi-los em soluções digitais de ponta a ponta — <strong class="text-primary-600">automatizando, corrigindo ou substituindo processos manuais</strong> com tecnologia e LLMs.',
+            bio2: 'Atuei como <strong>Prompt Engineer</strong> na <strong class="text-primary-600">Alignerr</strong> e <strong class="text-primary-600">Outlier</strong>, otimizando modelos de linguagem e desenvolvendo sistemas conversacionais inteligentes. Meus projetos principais incluem o <strong class="text-primary-600">ABAplay</strong>, plataforma SaaS com <strong>300+ pacientes</strong> em <strong>4 clínicas</strong>, e o <strong class="text-primary-600">LumniPsi</strong>, sistema clínico para psicologia com IA integrada.',
+            bio3: 'Possuo background de <strong>9 anos em gestão</strong> como Diretor Administrativo — essa vivência me permite <strong class="text-primary-600">mapear processos reais de negócio</strong> e criar soluções que resolvem problemas concretos, desde a gestão clínica até a prospecção comercial com agentes IA.',
             highlights: [
                 'Prompt Engineer na Alignerr & Outlier',
                 'Certificações em LangChain & IA',
@@ -77,8 +77,8 @@ export const translations = {
             badge: 'Portfólio',
             title: 'Projetos',
             titleHighlight: ' Destacados',
-            description: 'Aplicações completas desenvolvidas do zero, algumas já em produção com usuários reais.',
-            mainProject: 'Projeto Principal',
+            description: 'De plataformas SaaS em produção a sistemas de automação com agentes IA — aplicações completas desenvolvidas do zero.',
+            featuredProject: 'Projeto Destaque',
             status: {
                 production: 'Em Produção',
                 demo: 'Demo'
@@ -87,10 +87,16 @@ export const translations = {
             learnMore: 'Saiba Mais',
             demo: 'Demo',
             github: 'GitHub',
+            privateCode: 'Código Privado',
+            aiSectionTitle: 'Automação com Agentes IA',
+            aiSectionDescription: 'Processos comerciais reais traduzidos em automação inteligente — da descoberta de leads à conversão multicanal com agentes LLM especializados.',
             metrics: {
                 patients: 'Pacientes',
                 clinics: 'Clínicas',
-                lines: 'Linhas de Código'
+                lines: 'Linhas de Código',
+                modules: 'Módulos API',
+                roles: 'Papéis de Acesso',
+                docTypes: 'Tipos de Documento'
             },
             seeDetails: 'Ver Detalhes',
             close: 'Fechar'
@@ -163,9 +169,9 @@ export const translations = {
             available: 'Available for projects',
             productionBadge: 'Products in Production',
             managementBadge: 'years in management',
-            bio1: '<strong>Software Engineer</strong> specialized in <strong class="text-primary-600">Artificial Intelligence</strong> and Data Science. Experience building digital products from concept to deployment, focused on solving complex problems through LLM-based solutions.',
-            bio2: 'Worked as a <strong>Prompt Engineer</strong> at <strong class="text-primary-600">Alignerr</strong> and <strong class="text-primary-600">Outlier</strong>, optimizing language models and developing intelligent conversational systems. My main project, <strong class="text-primary-600">ABAplay</strong>, is a SaaS platform serving <strong>300+ patients</strong> across <strong>4 clinics</strong>.',
-            bio3: 'I bring a background of <strong>9 years in management</strong> as Administrative Director, combining business vision with technical skills to deliver innovative products.',
+            bio1: '<strong>Software Engineer</strong> specialized in <strong class="text-primary-600">Artificial Intelligence</strong> and Data Science. My key differentiator is understanding business workflows and translating them into end-to-end digital solutions — <strong class="text-primary-600">automating, fixing, or replacing manual processes</strong> with technology and LLMs.',
+            bio2: 'Worked as a <strong>Prompt Engineer</strong> at <strong class="text-primary-600">Alignerr</strong> and <strong class="text-primary-600">Outlier</strong>, optimizing language models and developing intelligent conversational systems. My main projects include <strong class="text-primary-600">ABAplay</strong>, a SaaS platform serving <strong>300+ patients</strong> across <strong>4 clinics</strong>, and <strong class="text-primary-600">LumniPsi</strong>, a clinical psychology system with integrated AI.',
+            bio3: 'I bring a background of <strong>9 years in management</strong> as Administrative Director — this experience allows me to <strong class="text-primary-600">map real business processes</strong> and build solutions that solve concrete problems, from clinical management to commercial prospecting with AI agents.',
             highlights: [
                 'Prompt Engineer at Alignerr & Outlier',
                 'LangChain & AI Certifications',
@@ -199,8 +205,8 @@ export const translations = {
             badge: 'Portfolio',
             title: 'Featured',
             titleHighlight: ' Projects',
-            description: 'Complete applications built from scratch, some already in production with real users.',
-            mainProject: 'Main Project',
+            description: 'From production SaaS platforms to AI agent automation systems — complete applications built from scratch.',
+            featuredProject: 'Featured Project',
             status: {
                 production: 'In Production',
                 demo: 'Demo'
@@ -209,10 +215,16 @@ export const translations = {
             learnMore: 'Learn More',
             demo: 'Demo',
             github: 'GitHub',
+            privateCode: 'Private Code',
+            aiSectionTitle: 'AI Agent Automation',
+            aiSectionDescription: 'Real business processes translated into intelligent automation — from lead discovery to multi-channel conversion with specialized LLM agents.',
             metrics: {
                 patients: 'Patients',
                 clinics: 'Clinics',
-                lines: 'Lines of Code'
+                lines: 'Lines of Code',
+                modules: 'API Modules',
+                roles: 'Access Roles',
+                docTypes: 'Document Types'
             },
             seeDetails: 'See Details',
             close: 'Close'
@@ -256,6 +268,46 @@ export const projectTranslations = {
                 'Geração de relatórios profissionais em PDF'
             ]
         },
+        lumnipsi: {
+            subtitle: 'Plataforma Clínica para Psicologia',
+            description: 'Sistema clínico completo para psicologia com prontuário eletrônico, agenda, documentos, registros restritos com PIN, portal do cliente e assistente IA. Monorepo full-stack TypeScript com 15+ módulos de API.',
+            highlights: [
+                'RBAC com 8 papéis hierárquicos (OWNER → GUARDIAN) e PIN secundário',
+                'Conformidade LGPD com auditoria de ações sensíveis',
+                'Assistente IA integrada (Lia) via LangChain + OpenAI',
+                'Motor de relatórios clínicos a partir de sessões com indicadores estruturados'
+            ]
+        },
+        outreach: {
+            subtitle: 'Automação Comercial Multi-Agente',
+            description: 'Sistema de automação comercial B2B multicanal com WhatsApp (Meta Cloud API) e Email (Resend). Utiliza 5 agentes LLM especializados para qualificação, sugestão de respostas e conversão de leads.',
+            highlights: [
+                '5 agentes LLM especializados (Qualificação, Objeção, Conversão...)',
+                'WhatsApp via Meta Cloud API + Email drip 4 etapas via Resend',
+                '178 testes unitários com cobertura completa',
+                'Deploy dual: Ollama (local GPU) / Claude Haiku (VPS)'
+            ]
+        },
+        'operadora-hunter': {
+            subtitle: 'Pipeline de Prospecção com IA',
+            description: 'Sistema de prospecção de leads com pipeline de 5 fases integrando fontes públicas (ANS, CNES, Google Maps), enriquecimento automatizado e classificação por LLM. Dashboard analítico com mapas 3D e visualizações avançadas.',
+            highlights: [
+                'Pipeline de 5 fases: ANS → CNES → Enriquecimento → LLM → Scoring',
+                'DuckDB + Polars para processamento analítico de alta performance',
+                'Orquestração com Prefect 3.x (retries, logging estruturado)',
+                'Dashboard com mapa 3D (deck.gl), Sankey e heatmaps'
+            ]
+        },
+        'lead-finder': {
+            subtitle: 'Descoberta de Leads com IA Local',
+            description: 'Ferramenta de descoberta e classificação de leads usando web scraping (Playwright) e classificação por IA local (Ollama). Pipeline automatizado de 3 fases com dashboard em tempo real.',
+            highlights: [
+                'Web scraping assíncrono com Playwright no Google Maps',
+                'Classificação ABA por IA local (Ollama qwen2.5:14b)',
+                'Enriquecimento de sites: emails, WhatsApp, redes sociais',
+                'Dashboard Streamlit com progresso em tempo real'
+            ]
+        },
         'financas-ia': {
             subtitle: 'Assistente Financeiro com IA',
             description: 'Aplicação que permite registrar gastos via conversa natural com IA. Utiliza GPT-4o para interpretar comandos e categorizar transações automaticamente.',
@@ -266,24 +318,6 @@ export const projectTranslations = {
                 'PWA instalável'
             ]
         },
-        'mural-bicos': {
-            subtitle: 'Marketplace de Serviços',
-            description: 'Plataforma que conecta trabalhadores autônomos a contratantes. Filtros por categoria, valor e localização com contato direto via WhatsApp.',
-            highlights: [
-                'Filtros avançados por categoria/valor/cidade',
-                'Contato via WhatsApp integrado',
-                'Real-time com Supabase'
-            ]
-        },
-        'prompt-agent': {
-            subtitle: 'Agente de Engenharia de Prompt',
-            description: 'Ferramenta com IA para auxiliar na criação de prompts eficientes. Implementa fallback inteligente (API → base local), validação de respostas e métricas de precisão.',
-            highlights: [
-                'Modo LLM/Local com fallback inteligente',
-                'Armazenamento de interações em SQLite',
-                'Métricas de precisão de respostas'
-            ]
-        },
         'psicoia-pro': {
             subtitle: 'Gerador de Relatórios com IA',
             description: 'Sistema que auxilia psicólogos na criação de 17 tipos de relatórios profissionais. Processo guiado com geração automática via GPT-4.',
@@ -291,24 +325,6 @@ export const projectTranslations = {
                 '17 tipos de relatórios disponíveis',
                 'Exportação para DOCX',
                 'Processo passo-a-passo guiado'
-            ]
-        },
-        'llm-local': {
-            subtitle: 'Chat com LLMs via Ollama',
-            description: 'Interface para interagir com LLMs rodando localmente via Ollama. Suporta streaming, histórico de conversas e upload de arquivos para contexto.',
-            highlights: [
-                'Streaming de respostas em tempo real',
-                'Upload de PDF/DOCX para contexto',
-                'Histórico de conversas persistente'
-            ]
-        },
-        'cliniagenda': {
-            subtitle: 'Sistema de Agendamento',
-            description: 'Aplicação de agendamento com foco em segurança enterprise. Implementa JWT, rate limiting, prepared statements e validação rigorosa de dados.',
-            highlights: [
-                'Autenticação JWT com bcrypt',
-                'Rate limiting e Helmet',
-                'Prepared statements anti-SQL injection'
             ]
         }
     },
@@ -323,6 +339,46 @@ export const projectTranslations = {
                 'Professional PDF report generation'
             ]
         },
+        lumnipsi: {
+            subtitle: 'Clinical Psychology Platform',
+            description: 'Complete clinical system for psychology with electronic health records, scheduling, documents, PIN-protected restricted records, client portal, and AI assistant. Full-stack TypeScript monorepo with 15+ API modules.',
+            highlights: [
+                'RBAC with 8 hierarchical roles (OWNER → GUARDIAN) and secondary PIN',
+                'LGPD compliance with sensitive action auditing',
+                'Integrated AI assistant (Lia) via LangChain + OpenAI',
+                'Clinical report engine from sessions with structured indicators'
+            ]
+        },
+        outreach: {
+            subtitle: 'Multi-Agent Commercial Automation',
+            description: 'Multi-channel B2B commercial automation system with WhatsApp (Meta Cloud API) and Email (Resend). Uses 5 specialized LLM agents for qualification, response suggestions, and lead conversion.',
+            highlights: [
+                '5 specialized LLM agents (Qualification, Objection, Conversion...)',
+                'WhatsApp via Meta Cloud API + 4-step Email drip via Resend',
+                '178 unit tests with full coverage',
+                'Dual deploy: Ollama (local GPU) / Claude Haiku (VPS)'
+            ]
+        },
+        'operadora-hunter': {
+            subtitle: 'AI-Powered Prospecting Pipeline',
+            description: 'Lead prospecting system with a 5-phase pipeline integrating public data sources (ANS, CNES, Google Maps), automated enrichment, and LLM classification. Analytical dashboard with 3D maps and advanced visualizations.',
+            highlights: [
+                '5-phase pipeline: ANS → CNES → Enrichment → LLM → Scoring',
+                'DuckDB + Polars for high-performance analytical processing',
+                'Orchestration with Prefect 3.x (retries, structured logging)',
+                'Dashboard with 3D maps (deck.gl), Sankey and heatmaps'
+            ]
+        },
+        'lead-finder': {
+            subtitle: 'Lead Discovery with Local AI',
+            description: 'Lead discovery and classification tool using web scraping (Playwright) and local AI classification (Ollama). Automated 3-phase pipeline with real-time dashboard.',
+            highlights: [
+                'Async web scraping with Playwright on Google Maps',
+                'ABA classification via local AI (Ollama qwen2.5:14b)',
+                'Site enrichment: emails, WhatsApp, social media',
+                'Streamlit dashboard with real-time progress'
+            ]
+        },
         'financas-ia': {
             subtitle: 'AI Financial Assistant',
             description: 'Application that allows expense tracking through natural conversation with AI. Uses GPT-4o to interpret commands and automatically categorize transactions.',
@@ -333,24 +389,6 @@ export const projectTranslations = {
                 'Installable PWA'
             ]
         },
-        'mural-bicos': {
-            subtitle: 'Services Marketplace',
-            description: 'Platform connecting freelancers to contractors. Filters by category, price, and location with direct WhatsApp contact.',
-            highlights: [
-                'Advanced filters by category/price/city',
-                'Integrated WhatsApp contact',
-                'Real-time with Supabase'
-            ]
-        },
-        'prompt-agent': {
-            subtitle: 'Prompt Engineering Agent',
-            description: 'AI tool to assist in creating efficient prompts. Implements smart fallback (API → local base), response validation, and precision metrics.',
-            highlights: [
-                'LLM/Local mode with smart fallback',
-                'SQLite interaction storage',
-                'Response precision metrics'
-            ]
-        },
         'psicoia-pro': {
             subtitle: 'AI Report Generator',
             description: 'System that helps psychologists create 17 types of professional reports. Guided process with automatic generation via GPT-4.',
@@ -358,24 +396,6 @@ export const projectTranslations = {
                 '17 report types available',
                 'DOCX export',
                 'Step-by-step guided process'
-            ]
-        },
-        'llm-local': {
-            subtitle: 'Chat with LLMs via Ollama',
-            description: 'Interface to interact with locally running LLMs via Ollama. Supports streaming, conversation history, and file upload for context.',
-            highlights: [
-                'Real-time response streaming',
-                'PDF/DOCX upload for context',
-                'Persistent conversation history'
-            ]
-        },
-        'cliniagenda': {
-            subtitle: 'Scheduling System',
-            description: 'Enterprise-focused scheduling application. Implements JWT, rate limiting, prepared statements, and rigorous data validation.',
-            highlights: [
-                'JWT authentication with bcrypt',
-                'Rate limiting and Helmet',
-                'Anti-SQL injection prepared statements'
             ]
         }
     }
