@@ -1,4 +1,3 @@
-import { Heart, Code2 } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
@@ -6,63 +5,12 @@ export default function Footer() {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer className="bg-surface-900 text-white py-12">
-            <div className="container-custom">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    {/* Logo */}
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-500 flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">G</span>
-                        </div>
-                        <div>
-                            <span className="font-bold text-lg">Gabriel Gomes</span>
-                            <p className="text-sm text-surface-400">{t.footer.role}</p>
-                        </div>
-                    </div>
-
-                    {/* Links */}
-                    <div className="flex items-center gap-6 text-sm text-surface-400">
-                        <a
-                            href="https://github.com/GabrielGomesDevBr"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-white transition-colors"
-                        >
-                            GitHub
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/gabrielgomesdevbr"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-white transition-colors"
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            href="mailto:gabrielgomesdevbr@gmail.com"
-                            className="hover:text-white transition-colors"
-                        >
-                            Email
-                        </a>
-                    </div>
-                </div>
-
-                {/* Divider */}
-                <div className="border-t border-surface-800 my-8" />
-
-                {/* Copyright */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-surface-400">
-                    <p>
-                        © {currentYear} Gabriel Gomes. {t.footer.rights}
-                    </p>
-                    <p className="flex items-center gap-2">
-                        {t.footer.madeWith}
-                        <Heart size={16} className="text-red-500" fill="currentColor" />
-                        {t.footer.using}
-                        <Code2 size={16} className="text-primary-400" />
-                        React + Tailwind
-                    </p>
-                </div>
+        <footer className="bg-engine border-t border-engine-line py-8 text-sm">
+            <div className="container-custom flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p className="text-engine-faint">
+                    © {currentYear} Gabriel Gomes · <span className="text-engine-text">{t.footer.role}</span>
+                </p>
+                <p className="font-mono text-xs text-engine-faint">{t.footer.madeWith}</p>
             </div>
         </footer>
     )

@@ -1,402 +1,556 @@
+// Conteúdo do portfólio em pt-BR e en.
+// Todos os números citados foram verificados no código-fonte dos projetos em julho/2026.
+
 export const translations = {
     'pt-BR': {
-        // Header
         nav: {
-            home: 'Início',
-            about: 'Sobre',
-            skills: 'Skills',
-            projects: 'Projetos',
+            cases: 'Casos',
+            machine: 'Máquina de vendas',
+            method: 'Como trabalho',
+            journey: 'Trajetória',
             contact: 'Contato',
             resume: 'Currículo'
         },
 
-        // Hero
         hero: {
-            badge: 'Disponível para novos projetos',
-            title: 'Gabriel Gomes',
-            subtitle1: 'Engenheiro de Software',
-            subtitle2: 'Especialista em IA',
-            description: 'Transformo ideias em produtos digitais completos.',
-            descriptionHighlight: 'Do conceito à produção, ',
-            descriptionBold: '100% solo',
-            cta1: 'Ver Projetos',
-            cta2: 'Entrar em Contato',
-            scroll: 'Scroll',
-            metrics: {
-                patients: 'Pacientes em Produção',
-                lines: 'Linhas de Código',
-                clinics: 'Clínicas Ativas',
-                management: 'Anos em Gestão'
-            }
-        },
-
-        // About
-        about: {
-            badge: 'Sobre Mim',
-            title: 'Desenvolvendo soluções',
-            titleHighlight: ' do zero à produção',
-            role: 'Engenheiro de Software',
-            location: 'São Paulo, SP',
-            experience: '+2 anos de experiência',
-            available: 'Disponível para projetos',
-            productionBadge: 'Produtos em Produção',
-            managementBadge: 'anos em gestão',
-            bio1: '<strong>Engenheiro de Software</strong> com especialização em <strong class="text-primary-600">Inteligência Artificial</strong> e Ciência de Dados. Meu diferencial é entender fluxos empresariais e traduzi-los em soluções digitais de ponta a ponta — <strong class="text-primary-600">automatizando, corrigindo ou substituindo processos manuais</strong> com tecnologia e LLMs.',
-            bio2: 'Atuei como <strong>Prompt Engineer</strong> na <strong class="text-primary-600">Alignerr</strong> e <strong class="text-primary-600">Outlier</strong>, otimizando modelos de linguagem e desenvolvendo sistemas conversacionais inteligentes. Meus projetos principais incluem o <strong class="text-primary-600">ABAplay</strong>, plataforma SaaS com <strong>300+ pacientes</strong> em <strong>4 clínicas</strong>, e o <strong class="text-primary-600">LumniPsi</strong>, sistema clínico para psicologia com IA integrada.',
-            bio3: 'Possuo background de <strong>9 anos em gestão</strong> como Diretor Administrativo — essa vivência me permite <strong class="text-primary-600">mapear processos reais de negócio</strong> e criar soluções que resolvem problemas concretos, desde a gestão clínica até a prospecção comercial com agentes IA.',
-            highlights: [
-                'Prompt Engineer na Alignerr & Outlier',
-                'Certificações em LangChain & IA',
-                'Eng. de Software - Cruzeiro do Sul'
+            status: 'abaplay.app.br — em produção · 4 clínicas pagantes · 300+ pacientes',
+            title1: 'Software que empresas',
+            title2: 'pagam para usar.',
+            description: 'Sou Gabriel Gomes, engenheiro de produto full-stack. Construo, lanço e opero sistemas SaaS de ponta a ponta — do esquema do banco de dados ao funil de vendas.',
+            cta1: 'Ver os dois casos',
+            cta2: 'Baixar currículo',
+            metrics: [
+                { value: '300+', label: 'pacientes na plataforma' },
+                { value: '4', label: 'clínicas pagantes' },
+                { value: '2', label: 'produtos SaaS completos' },
+                { value: '9', label: 'anos liderando operações' }
             ],
-            stats: {
-                years: 'Anos Dev',
-                projects: 'Projetos',
-                solo: 'Solo Dev'
+            footnote: 'Números verificados no código-fonte e em produção — julho/2026.'
+        },
+
+        cases: {
+            eyebrow: 'estudos de caso',
+            title: 'Dois produtos, duas provas diferentes.',
+            intro: 'O primeiro prova que eu entrego valor que o mercado paga. O segundo prova que minha engenharia evolui rápido.',
+
+            abaplay: {
+                caseLabel: 'caso 01',
+                name: 'ABAplay',
+                statusType: 'live',
+                statusLine: 'abaplay.app.br · em produção desde 2025',
+                tagline: 'Plataforma de gestão clínica para terapia infantil — construída, vendida e operada por uma pessoa.',
+                sections: [
+                    {
+                        title: 'O problema',
+                        text: 'Clínicas de terapia infantil (ABA, fonoaudiologia, TO, psicologia) registram sessões em papel e planilha. Terapeutas perdem horas com relatórios, pais não enxergam o progresso dos filhos e o dado clínico que deveria guiar decisões fica espalhado. Conheci essa dor no dia a dia de clínicas reais — e construí a resposta.'
+                    },
+                    {
+                        title: 'O que eu construí',
+                        text: 'Um SaaS multi-tenant completo: registro de sessões com níveis de prompting ABA, agenda com recorrência e cobertura de ausências, chat terapeuta-pais em tempo real, planos terapêuticos com assinatura digital e versionamento imutável, rastreios clínicos com comparação longitudinal, prontuário digital e um assistente de IA multi-agente para insights clínicos e operacionais.'
+                    },
+                    {
+                        title: 'Resultado',
+                        text: 'Quatro clínicas pagam assinatura mensal. Mais de 300 pacientes têm o acompanhamento clínico registrado na plataforma. O sistema opera continuamente desde 2025 — e sou eu quem responde quando algo quebra.'
+                    }
+                ],
+                screenshots: [
+                    { file: '/projects/registro-sessao.webp', caption: 'registro de sessão · níveis de prompting ABA' },
+                    { file: '/projects/psicologia-graficos.webp', caption: 'progresso por programa · linha de base e meta' },
+                    { file: '/projects/portal-pais.webp', caption: 'portal dos pais · chat em tempo real' }
+                ],
+                decisionsTitle: 'Decisões de engenharia que eu defendo',
+                decisions: [
+                    'Isolamento multi-tenant por clínica em toda query — nenhum dado cruza a fronteira entre clientes.',
+                    'SQL parametrizado sem ORM: controle total sobre performance e 248 migrations versionadas.',
+                    'IA com freios: orquestrador roteia para 4 agentes especializados, com limite de uso por clínica e trilha de auditoria LGPD.',
+                    'Upload direto navegador → Cloudflare R2 com URLs pré-assinadas: o servidor nunca toca o arquivo.',
+                    'Cinco background jobs cuidam do que humanos esquecem: sessões sem registro, trials expirando, faturamento, detecção de mestria clínica.'
+                ],
+                metrics: [
+                    { value: '180 mil', label: 'linhas de código' },
+                    { value: '484', label: 'commits em 13 meses' },
+                    { value: '248', label: 'migrations versionadas' },
+                    { value: '24/7', label: 'operação contínua' }
+                ],
+                stack: ['React 18', 'Node.js', 'Express', 'PostgreSQL', 'Socket.IO', 'OpenAI', 'Cloudflare R2'],
+                linkLabel: 'Conhecer o produto',
+                link: 'https://abaplay.app.br/info'
+            },
+
+            luminipsi: {
+                caseLabel: 'caso 02',
+                name: 'LuminiPsi',
+                statusType: 'signal',
+                statusLine: 'pré-lançamento · QA final',
+                tagline: 'Gestão clínica para psicólogos — o segundo produto, com a engenharia que aprendi construindo o primeiro.',
+                sections: [
+                    {
+                        title: 'O problema',
+                        text: 'Psicólogos brasileiros precisam manter prontuário conforme as resoluções do CFP e a LGPD — sigilo, retenção, trilha de auditoria — mas as ferramentas do mercado tratam isso como detalhe. O LuminiPsi nasce com a conformidade no centro: registros restritos protegidos por PIN, auditoria de toda ação sensível e descarte de dados automatizado.'
+                    },
+                    {
+                        title: 'A prova de evolução',
+                        text: 'Mais do que um produto novo, o LuminiPsi é a medida do quanto minha engenharia amadureceu em um ano. Cada fraqueza do primeiro projeto virou decisão deliberada no segundo:'
+                    }
+                ],
+                evolution: [
+                    { from: 'JavaScript', to: 'TypeScript de ponta a ponta, em monorepo' },
+                    { from: 'SQL manual', to: 'Prisma com migrations versionadas' },
+                    { from: 'Validação caso a caso', to: 'Zod em toda entrada da API' },
+                    { from: 'Testes pontuais', to: 'Pirâmide completa: unitários, integração (isolamento de tenant, RBAC, quotas) e e2e com Playwright' },
+                    { from: 'Cobrança manual', to: 'Stripe com webhook idempotente, 4 planos e add-ons' }
+                ],
+                cfpTitle: 'Saber quando não usar IA',
+                cfpText: 'O LuminiPsi tinha uma assistente de IA. Eu a removi. Conteúdo clínico de psicologia exige um sigilo que o Código de Ética do CFP não permite terceirizar a um modelo — então toda automação clínica do produto é determinística e auditável. Usar IA é fácil; saber onde ela não deve entrar é o que protege o cliente.',
+                metrics: [
+                    { value: '64 mil', label: 'linhas de TypeScript' },
+                    { value: '24', label: 'módulos de API' },
+                    { value: '8', label: 'papéis de acesso (RBAC)' },
+                    { value: '3', label: 'camadas de teste' }
+                ],
+                stack: ['TypeScript', 'React 19', 'Express', 'Prisma 6', 'PostgreSQL', 'Stripe', 'Playwright'],
+                linkLabel: null,
+                link: null
             }
         },
 
-        // Skills
-        skills: {
-            badge: 'Habilidades',
-            title: 'Tecnologias que',
-            titleHighlight: ' domino',
-            description: 'Stack completa para desenvolver aplicações modernas, escaláveis e com IA integrada.',
-            differentials: 'Diferenciais Técnicos',
-            softSkills: [
-                { title: 'Multi-Agent Systems', description: 'Arquitetura com orquestrador + 5 agentes especializados e MCP Tools' },
-                { title: 'Prompt Engineering', description: 'Experiência profissional na Alignerr e Outlier otimizando LLMs' },
-                { title: 'Arquitetura Multi-tenant', description: 'Sistemas SaaS com isolamento de dados e escalabilidade' },
-                { title: 'Liderança & Gestão', description: '9 anos como Diretor Administrativo gerenciando equipes' },
-                { title: 'Segurança de Aplicações', description: 'JWT, bcrypt, RLS, rate limiting, prepared statements' }
+        machine: {
+            eyebrow: 'casa de máquinas',
+            title: 'Produto não se vende sozinho. Então eu construí a máquina de vendas também.',
+            intro: 'Quando o ABAplay ficou pronto, tratei a aquisição de clientes como mais um problema de engenharia. O resultado é um pipeline completo de prospecção B2B — três sistemas que trabalham em sequência.',
+            steps: [
+                {
+                    name: 'Descobrir',
+                    tool: 'Lead Finder',
+                    description: 'Varre o Google Maps com Playwright e classifica clínicas com LLM local via Ollama. Milhares de leads mapeados, estado por estado, sem custo de API.',
+                    facts: ['Playwright', 'Ollama', 'Streamlit']
+                },
+                {
+                    name: 'Qualificar',
+                    tool: 'OperadoraHunter',
+                    description: 'Cruza dados públicos (ANS, CNES) com enriquecimento de sites e classificação por LLM. Cada lead sai com score de 0 a 100 e estratégia de abordagem recomendada.',
+                    facts: ['Dados públicos ANS/CNES', 'Score 0–100', 'Python']
+                },
+                {
+                    name: 'Converter',
+                    tool: 'Outreach Automation',
+                    description: 'WhatsApp oficial (Meta Cloud API) e e-mail em drip de 4 etapas, com 5 agentes LLM especializados — informação, qualificação, exploração, objeção e conversão. 178 testes unitários, rodando em VPS própria.',
+                    facts: ['Meta Cloud API', '5 agentes LLM', '178 testes']
+                }
+            ],
+            conclusion: 'As clínicas que pagam pelo ABAplay hoje entraram por esse funil. É isso que eu chamo de entender o negócio de ponta a ponta.'
+        },
+
+        method: {
+            eyebrow: 'como eu trabalho',
+            title: 'IA é a alavanca. A responsabilidade é minha.',
+            intro: 'Desenvolvo com IA desde o primeiro dia e não escondo isso — é exatamente a habilidade que multiplica a produtividade de um time hoje. O que a IA não faz por mim:',
+            principles: [
+                {
+                    title: 'Arquitetura e decisões são minhas',
+                    text: 'Isolamento de tenant, política de migrations, modelo de permissões, estratégia de billing: cada decisão estrutural dos meus sistemas tem um porquê que eu sei defender — e venho defendendo há mais de um ano com clientes em produção.'
+                },
+                {
+                    title: 'Operar é diferente de gerar',
+                    text: 'Código gerado não atende cliente. Eu faço deploy, monitoro, respondo incidente, migro banco com dado real e dou suporte a quem paga. É o que separa um produto de um protótipo.'
+                },
+                {
+                    title: 'Saber onde a IA não entra',
+                    text: 'Removi a IA do conteúdo clínico do LuminiPsi por ética profissional e LGPD. Julgamento sobre limites vale mais do que entusiasmo com ferramenta.'
+                },
+                {
+                    title: 'Negócio primeiro',
+                    text: 'Nove anos como diretor administrativo me ensinaram a perguntar "quem paga por isso e por quê" antes de "qual framework usar". Construo o que resolve problema — e provo com clientes, não com promessas.'
+                }
             ]
         },
 
-        // Projects
-        projects: {
-            badge: 'Portfólio',
-            title: 'Projetos',
-            titleHighlight: ' Destacados',
-            description: 'De plataformas SaaS em produção a sistemas de automação com agentes IA — aplicações completas desenvolvidas do zero.',
-            featuredProject: 'Projeto Destaque',
-            status: {
-                production: 'Em Produção',
-                demo: 'Demo'
-            },
-            viewApp: 'Ver Aplicação',
-            learnMore: 'Saiba Mais',
-            demo: 'Demo',
-            github: 'GitHub',
-            privateCode: 'Código Privado',
-            aiSectionTitle: 'Automação com Agentes IA',
-            aiSectionDescription: 'Processos comerciais reais traduzidos em automação inteligente — da descoberta de leads à conversão multicanal com agentes LLM especializados.',
-            metrics: {
-                patients: 'Pacientes',
-                clinics: 'Clínicas',
-                lines: 'Linhas de Código',
-                modules: 'Módulos API',
-                roles: 'Papéis de Acesso',
-                docTypes: 'Tipos de Documento'
-            },
-            seeDetails: 'Ver Detalhes',
-            close: 'Fechar'
+        journey: {
+            eyebrow: 'trajetória',
+            title: 'Cheguei ao código com uma década de empresa nas costas.',
+            intro: 'Comecei a programar depois dos 40, e isso é um ativo: quando escrevo software, sei como a empresa que vai usá-lo funciona por dentro — operação, orçamento, gente. Hoje curso Engenharia de Software e tenho dois produtos no mercado.',
+            timeline: [
+                {
+                    period: '2015 — 2024',
+                    role: 'Diretor Administrativo',
+                    org: 'Hope Construtora',
+                    text: 'Nove anos à frente de operações, equipes multidisciplinares, fornecedores e planejamento. Onde aprendi a transformar processo caótico em sistema.'
+                },
+                {
+                    period: '2023 — hoje',
+                    role: 'Fundador & Engenheiro',
+                    org: 'ABAplay',
+                    text: 'Do zero à produção: produto, código, infraestrutura, vendas e suporte. Quatro clínicas pagantes e mais de 300 pacientes na plataforma.'
+                },
+                {
+                    period: '2024',
+                    role: 'Prompt Engineer',
+                    org: 'Alignerr · Outlier',
+                    text: 'Avaliação e otimização de LLMs em escala: qualidade de resposta, edge cases, datasets de treinamento. Formação prática em como esses modelos funcionam — e falham.'
+                },
+                {
+                    period: '2026 — hoje',
+                    role: 'Fundador & Engenheiro',
+                    org: 'LuminiPsi',
+                    text: 'Segundo produto SaaS, construído em TypeScript com pirâmide de testes completa. Em fase final de QA para lançamento.'
+                },
+                {
+                    period: 'em andamento',
+                    role: 'Bacharelado em Engenharia de Software',
+                    org: 'Universidade Cruzeiro do Sul',
+                    text: 'Segundo ano. A teoria chegando depois da prática — na ordem que funcionou para mim.'
+                }
+            ],
+            stackTitle: 'Com o que eu trabalho',
+            stack: [
+                { group: 'Linguagens', items: 'TypeScript · JavaScript · Python · SQL' },
+                { group: 'Frontend', items: 'React 18/19 · Vite · Tailwind CSS · PWA' },
+                { group: 'Backend', items: 'Node.js · Express · Prisma · PostgreSQL · Socket.IO · Stripe' },
+                { group: 'IA & LLMs', items: 'OpenAI · Anthropic · Ollama · sistemas multi-agente · prompt engineering' },
+                { group: 'Infra & Testes', items: 'Render · VPS (Nginx) · Cloudflare R2 · Jest · Playwright' }
+            ]
         },
 
-        // Contact
+        others: {
+            eyebrow: 'laboratório',
+            title: 'Onde eu testo ideias',
+            intro: 'Projetos menores, construídos para explorar ferramentas e validar conceitos.',
+            projects: [
+                {
+                    name: 'Finanças IA',
+                    description: 'Registro de gastos por conversa natural — GPT-4o interpreta e categoriza cada transação.',
+                    tech: 'Next.js 15 · Supabase · OpenAI',
+                    link: 'https://github.com/GabrielGomesDevBr/financas_ia'
+                },
+                {
+                    name: 'PsicoIA Pro',
+                    description: '17 tipos de relatórios profissionais para psicólogos, com geração guiada e exportação DOCX.',
+                    tech: 'React · Node.js · OpenAI',
+                    link: 'https://github.com/GabrielGomesDevBr/gerador-relatorio'
+                },
+                {
+                    name: 'Mural de Bicos',
+                    description: 'Marketplace que conecta autônomos a contratantes, com contato direto via WhatsApp.',
+                    tech: 'React · Supabase',
+                    link: 'https://github.com/GabrielGomesDevBr/mural_de_bicos'
+                },
+                {
+                    name: 'Interface LLM Local',
+                    description: 'Chat com LLMs locais via Ollama: streaming, histórico e upload de documentos para contexto.',
+                    tech: 'Python · Streamlit · Ollama',
+                    link: 'https://github.com/GabrielGomesDevBr/interface_llm_local'
+                },
+                {
+                    name: 'Prompt Agent',
+                    description: 'Assistente de engenharia de prompt com fallback inteligente entre API e base local.',
+                    tech: 'Python · LangChain · SQLite',
+                    link: 'https://github.com/GabrielGomesDevBr/prompt_agent'
+                },
+                {
+                    name: 'CliniAgenda',
+                    description: 'Sistema de agendamento com foco em segurança: JWT, rate limiting, prepared statements.',
+                    tech: 'Node.js · PostgreSQL · JWT',
+                    link: 'https://github.com/GabrielGomesDevBr/agendamento'
+                }
+            ],
+            viewCode: 'Ver código'
+        },
+
         contact: {
-            badge: 'Contato',
-            title: 'Vamos',
-            titleHighlight: ' trabalhar juntos?',
-            description: 'Estou disponível para novos projetos, parcerias ou oportunidades de trabalho. Entre em contato e vamos conversar!',
-            cta: {
-                title: 'Pronto para o próximo passo?',
-                description: 'Baixe meu currículo completo em PDF ou entre em contato diretamente. Retorno em até 24 horas!',
-                downloadCV: 'Download Currículo PDF',
-                whatsapp: 'WhatsApp',
-                email: 'ou envie um email'
+            eyebrow: 'contato',
+            title: 'Vamos direto ao ponto.',
+            text: 'Procuro oportunidades como engenheiro de produto ou full-stack em times que valorizem autonomia e visão de negócio. São Paulo ou remoto. Respondo em até 24 horas.',
+            whatsapp: 'Chamar no WhatsApp',
+            whatsappMessage: 'Olá Gabriel! Vi seu portfólio e gostaria de conversar.',
+            downloadCV: 'Baixar currículo (PDF)',
+            links: {
+                email: 'gabrielgomesdevbr@gmail.com',
+                linkedin: 'linkedin.com/in/gabrielgomesdevbr',
+                github: 'github.com/GabrielGomesDevBr'
             },
-            location: 'São Paulo, SP • Disponível para trabalho remoto'
+            location: 'São Paulo, SP · disponível para remoto'
         },
 
-        // Footer
         footer: {
-            role: 'Desenvolvedor Full-Stack',
+            role: 'Engenheiro de Produto Full-Stack',
             rights: 'Todos os direitos reservados.',
-            madeWith: 'Feito com',
-            using: 'usando'
+            madeWith: 'Feito com React + Tailwind — e sim, com IA.'
         }
     },
 
     'en': {
-        // Header
         nav: {
-            home: 'Home',
-            about: 'About',
-            skills: 'Skills',
-            projects: 'Projects',
+            cases: 'Case studies',
+            machine: 'Sales machine',
+            method: 'How I work',
+            journey: 'Journey',
             contact: 'Contact',
             resume: 'Resume'
         },
 
-        // Hero
         hero: {
-            badge: 'Available for new projects',
-            title: 'Gabriel Gomes',
-            subtitle1: 'Software Engineer',
-            subtitle2: 'AI Specialist',
-            description: 'I turn ideas into complete digital products.',
-            descriptionHighlight: 'From concept to production, ',
-            descriptionBold: '100% solo',
-            cta1: 'View Projects',
-            cta2: 'Get in Touch',
-            scroll: 'Scroll',
-            metrics: {
-                patients: 'Patients in Production',
-                lines: 'Lines of Code',
-                clinics: 'Active Clinics',
-                management: 'Years in Management'
-            }
-        },
-
-        // About
-        about: {
-            badge: 'About Me',
-            title: 'Building solutions',
-            titleHighlight: ' from scratch to production',
-            role: 'Software Engineer',
-            location: 'São Paulo, Brazil',
-            experience: '+2 years of experience',
-            available: 'Available for projects',
-            productionBadge: 'Products in Production',
-            managementBadge: 'years in management',
-            bio1: '<strong>Software Engineer</strong> specialized in <strong class="text-primary-600">Artificial Intelligence</strong> and Data Science. My key differentiator is understanding business workflows and translating them into end-to-end digital solutions — <strong class="text-primary-600">automating, fixing, or replacing manual processes</strong> with technology and LLMs.',
-            bio2: 'Worked as a <strong>Prompt Engineer</strong> at <strong class="text-primary-600">Alignerr</strong> and <strong class="text-primary-600">Outlier</strong>, optimizing language models and developing intelligent conversational systems. My main projects include <strong class="text-primary-600">ABAplay</strong>, a SaaS platform serving <strong>300+ patients</strong> across <strong>4 clinics</strong>, and <strong class="text-primary-600">LumniPsi</strong>, a clinical psychology system with integrated AI.',
-            bio3: 'I bring a background of <strong>9 years in management</strong> as Administrative Director — this experience allows me to <strong class="text-primary-600">map real business processes</strong> and build solutions that solve concrete problems, from clinical management to commercial prospecting with AI agents.',
-            highlights: [
-                'Prompt Engineer at Alignerr & Outlier',
-                'LangChain & AI Certifications',
-                'Software Engineering Student'
+            status: 'abaplay.app.br — in production · 4 paying clinics · 300+ patients',
+            title1: 'Software that companies',
+            title2: 'pay to use.',
+            description: "I'm Gabriel Gomes, a full-stack product engineer. I build, launch, and operate SaaS systems end to end — from the database schema to the sales funnel.",
+            cta1: 'See both case studies',
+            cta2: 'Download resume',
+            metrics: [
+                { value: '300+', label: 'patients on the platform' },
+                { value: '4', label: 'paying clinics' },
+                { value: '2', label: 'complete SaaS products' },
+                { value: '9', label: 'years leading operations' }
             ],
-            stats: {
-                years: 'Years Dev',
-                projects: 'Projects',
-                solo: 'Solo Dev'
+            footnote: 'Numbers verified in source code and production — July 2026.'
+        },
+
+        cases: {
+            eyebrow: 'case studies',
+            title: 'Two products, two different proofs.',
+            intro: 'The first proves I deliver value the market pays for. The second proves my engineering evolves fast.',
+
+            abaplay: {
+                caseLabel: 'case 01',
+                name: 'ABAplay',
+                statusType: 'live',
+                statusLine: 'abaplay.app.br · in production since 2025',
+                tagline: 'Clinical management platform for pediatric therapy — built, sold, and operated by one person.',
+                sections: [
+                    {
+                        title: 'The problem',
+                        text: 'Pediatric therapy clinics (ABA, speech, OT, psychology) track sessions on paper and spreadsheets. Therapists lose hours on reports, parents can\'t see their children\'s progress, and the clinical data that should drive decisions is scattered. I saw this pain up close in real clinics — and built the answer.'
+                    },
+                    {
+                        title: 'What I built',
+                        text: 'A complete multi-tenant SaaS: session recording with ABA prompting levels, scheduling with recurrence and absence coverage, real-time therapist-parent chat, treatment plans with digital signature and immutable versioning, clinical screenings with longitudinal comparison, digital records, and a multi-agent AI assistant for clinical and operational insights.'
+                    },
+                    {
+                        title: 'The result',
+                        text: 'Four clinics pay a monthly subscription. More than 300 patients have their clinical follow-up recorded on the platform. The system has run continuously since 2025 — and I\'m the one who answers when something breaks.'
+                    }
+                ],
+                screenshots: [
+                    { file: '/projects/registro-sessao.webp', caption: 'session recording · ABA prompting levels' },
+                    { file: '/projects/psicologia-graficos.webp', caption: 'per-program progress · baseline and target' },
+                    { file: '/projects/portal-pais.webp', caption: 'parent portal · real-time chat' }
+                ],
+                decisionsTitle: 'Engineering decisions I stand behind',
+                decisions: [
+                    'Multi-tenant isolation per clinic in every query — no data ever crosses the boundary between customers.',
+                    'Parameterized SQL without an ORM: full control over performance and 248 versioned migrations.',
+                    'AI with guardrails: an orchestrator routes to 4 specialized agents, with per-clinic usage limits and an LGPD audit trail.',
+                    'Direct browser → Cloudflare R2 uploads with presigned URLs: the server never touches the file.',
+                    'Five background jobs handle what humans forget: unrecorded sessions, expiring trials, billing, clinical mastery detection.'
+                ],
+                metrics: [
+                    { value: '180K', label: 'lines of code' },
+                    { value: '484', label: 'commits in 13 months' },
+                    { value: '248', label: 'versioned migrations' },
+                    { value: '24/7', label: 'continuous operation' }
+                ],
+                stack: ['React 18', 'Node.js', 'Express', 'PostgreSQL', 'Socket.IO', 'OpenAI', 'Cloudflare R2'],
+                linkLabel: 'See the product',
+                link: 'https://abaplay.app.br/info'
+            },
+
+            luminipsi: {
+                caseLabel: 'case 02',
+                name: 'LuminiPsi',
+                statusType: 'signal',
+                statusLine: 'pre-launch · final QA',
+                tagline: 'Clinical management for psychologists — the second product, with the engineering I learned building the first.',
+                sections: [
+                    {
+                        title: 'The problem',
+                        text: 'Brazilian psychologists must keep records compliant with federal council (CFP) resolutions and the LGPD privacy law — confidentiality, retention, audit trails — but market tools treat that as an afterthought. LuminiPsi puts compliance at the center: PIN-protected restricted records, auditing of every sensitive action, and automated data disposal.'
+                    },
+                    {
+                        title: 'Proof of growth',
+                        text: 'More than a new product, LuminiPsi measures how much my engineering matured in one year. Every weakness of the first project became a deliberate decision in the second:'
+                    }
+                ],
+                evolution: [
+                    { from: 'JavaScript', to: 'End-to-end TypeScript in a monorepo' },
+                    { from: 'Hand-written SQL', to: 'Prisma with versioned migrations' },
+                    { from: 'Ad-hoc validation', to: 'Zod on every API input' },
+                    { from: 'Scattered tests', to: 'Full pyramid: unit, integration (tenant isolation, RBAC, quotas), and e2e with Playwright' },
+                    { from: 'Manual billing', to: 'Stripe with idempotent webhooks, 4 plans, and add-ons' }
+                ],
+                cfpTitle: 'Knowing when not to use AI',
+                cfpText: 'LuminiPsi had an AI assistant. I removed it. Clinical psychology content demands a confidentiality that the profession\'s code of ethics doesn\'t allow outsourcing to a model — so all clinical automation in the product is deterministic and auditable. Using AI is easy; knowing where it must not go is what protects the customer.',
+                metrics: [
+                    { value: '64K', label: 'lines of TypeScript' },
+                    { value: '24', label: 'API modules' },
+                    { value: '8', label: 'access roles (RBAC)' },
+                    { value: '3', label: 'layers of testing' }
+                ],
+                stack: ['TypeScript', 'React 19', 'Express', 'Prisma 6', 'PostgreSQL', 'Stripe', 'Playwright'],
+                linkLabel: null,
+                link: null
             }
         },
 
-        // Skills
-        skills: {
-            badge: 'Skills',
-            title: 'Technologies I',
-            titleHighlight: ' master',
-            description: 'Full stack to build modern, scalable applications with integrated AI.',
-            differentials: 'Technical Differentiators',
-            softSkills: [
-                { title: 'Multi-Agent Systems', description: 'Orchestrator architecture + 5 specialized agents with MCP Tools' },
-                { title: 'Prompt Engineering', description: 'Professional experience at Alignerr and Outlier optimizing LLMs' },
-                { title: 'Multi-tenant Architecture', description: 'SaaS systems with data isolation and scalability' },
-                { title: 'Leadership & Management', description: '9 years as Administrative Director managing teams' },
-                { title: 'Application Security', description: 'JWT, bcrypt, RLS, rate limiting, prepared statements' }
+        machine: {
+            eyebrow: 'engine room',
+            title: "A product doesn't sell itself. So I built the sales machine too.",
+            intro: 'When ABAplay was ready, I treated customer acquisition as one more engineering problem. The result is a complete B2B prospecting pipeline — three systems working in sequence.',
+            steps: [
+                {
+                    name: 'Discover',
+                    tool: 'Lead Finder',
+                    description: 'Crawls Google Maps with Playwright and classifies clinics with a local LLM via Ollama. Thousands of leads mapped, state by state, with zero API cost.',
+                    facts: ['Playwright', 'Ollama', 'Streamlit']
+                },
+                {
+                    name: 'Qualify',
+                    tool: 'OperadoraHunter',
+                    description: 'Cross-references public health datasets (ANS, CNES) with website enrichment and LLM classification. Every lead comes out with a 0–100 score and a recommended approach strategy.',
+                    facts: ['Public ANS/CNES data', '0–100 scoring', 'Python']
+                },
+                {
+                    name: 'Convert',
+                    tool: 'Outreach Automation',
+                    description: 'Official WhatsApp (Meta Cloud API) and a 4-step email drip, with 5 specialized LLM agents — information, qualification, exploration, objection, and conversion. 178 unit tests, running on my own VPS.',
+                    facts: ['Meta Cloud API', '5 LLM agents', '178 tests']
+                }
+            ],
+            conclusion: "The clinics paying for ABAplay today came through this funnel. That's what I call understanding the business end to end."
+        },
+
+        method: {
+            eyebrow: 'how I work',
+            title: 'AI is the lever. The responsibility is mine.',
+            intro: "I've built with AI from day one and I don't hide it — it's exactly the skill that multiplies a team's output today. What AI doesn't do for me:",
+            principles: [
+                {
+                    title: 'Architecture and decisions are mine',
+                    text: 'Tenant isolation, migration policy, permission model, billing strategy: every structural decision in my systems has a why I can defend — and have been defending for over a year with paying customers in production.'
+                },
+                {
+                    title: 'Operating is different from generating',
+                    text: "Generated code doesn't serve customers. I deploy, monitor, respond to incidents, migrate databases with real data, and support the people who pay. That's what separates a product from a prototype."
+                },
+                {
+                    title: 'Knowing where AI must not go',
+                    text: 'I removed AI from LuminiPsi\'s clinical content for professional ethics and privacy law. Judgment about limits is worth more than enthusiasm for tools.'
+                },
+                {
+                    title: 'Business first',
+                    text: 'Nine years as an administrative director taught me to ask "who pays for this and why" before "which framework to use". I build what solves problems — and prove it with customers, not promises.'
+                }
             ]
         },
 
-        // Projects
-        projects: {
-            badge: 'Portfolio',
-            title: 'Featured',
-            titleHighlight: ' Projects',
-            description: 'From production SaaS platforms to AI agent automation systems — complete applications built from scratch.',
-            featuredProject: 'Featured Project',
-            status: {
-                production: 'In Production',
-                demo: 'Demo'
-            },
-            viewApp: 'View Application',
-            learnMore: 'Learn More',
-            demo: 'Demo',
-            github: 'GitHub',
-            privateCode: 'Private Code',
-            aiSectionTitle: 'AI Agent Automation',
-            aiSectionDescription: 'Real business processes translated into intelligent automation — from lead discovery to multi-channel conversion with specialized LLM agents.',
-            metrics: {
-                patients: 'Patients',
-                clinics: 'Clinics',
-                lines: 'Lines of Code',
-                modules: 'API Modules',
-                roles: 'Access Roles',
-                docTypes: 'Document Types'
-            },
-            seeDetails: 'See Details',
-            close: 'Close'
+        journey: {
+            eyebrow: 'journey',
+            title: 'I came to code with a decade of business behind me.',
+            intro: "I started programming after 40, and that's an asset: when I write software, I know how the company that will use it works from the inside — operations, budget, people. Today I'm studying Software Engineering and have two products on the market.",
+            timeline: [
+                {
+                    period: '2015 — 2024',
+                    role: 'Administrative Director',
+                    org: 'Hope Construtora',
+                    text: 'Nine years leading operations, multidisciplinary teams, suppliers, and planning. Where I learned to turn chaotic process into system.'
+                },
+                {
+                    period: '2023 — today',
+                    role: 'Founder & Engineer',
+                    org: 'ABAplay',
+                    text: 'From zero to production: product, code, infrastructure, sales, and support. Four paying clinics and 300+ patients on the platform.'
+                },
+                {
+                    period: '2024',
+                    role: 'Prompt Engineer',
+                    org: 'Alignerr · Outlier',
+                    text: 'LLM evaluation and optimization at scale: response quality, edge cases, training datasets. Hands-on training in how these models work — and fail.'
+                },
+                {
+                    period: '2026 — today',
+                    role: 'Founder & Engineer',
+                    org: 'LuminiPsi',
+                    text: 'Second SaaS product, built in TypeScript with a full testing pyramid. In final QA for launch.'
+                },
+                {
+                    period: 'in progress',
+                    role: 'B.Sc. in Software Engineering',
+                    org: 'Universidade Cruzeiro do Sul',
+                    text: 'Second year. Theory arriving after practice — in the order that worked for me.'
+                }
+            ],
+            stackTitle: 'What I work with',
+            stack: [
+                { group: 'Languages', items: 'TypeScript · JavaScript · Python · SQL' },
+                { group: 'Frontend', items: 'React 18/19 · Vite · Tailwind CSS · PWA' },
+                { group: 'Backend', items: 'Node.js · Express · Prisma · PostgreSQL · Socket.IO · Stripe' },
+                { group: 'AI & LLMs', items: 'OpenAI · Anthropic · Ollama · multi-agent systems · prompt engineering' },
+                { group: 'Infra & Testing', items: 'Render · VPS (Nginx) · Cloudflare R2 · Jest · Playwright' }
+            ]
         },
 
-        // Contact
+        others: {
+            eyebrow: 'lab',
+            title: 'Where I test ideas',
+            intro: 'Smaller projects, built to explore tools and validate concepts.',
+            projects: [
+                {
+                    name: 'Finanças IA',
+                    description: 'Expense tracking through natural conversation — GPT-4o interprets and categorizes each transaction.',
+                    tech: 'Next.js 15 · Supabase · OpenAI',
+                    link: 'https://github.com/GabrielGomesDevBr/financas_ia'
+                },
+                {
+                    name: 'PsicoIA Pro',
+                    description: '17 types of professional reports for psychologists, with guided generation and DOCX export.',
+                    tech: 'React · Node.js · OpenAI',
+                    link: 'https://github.com/GabrielGomesDevBr/gerador-relatorio'
+                },
+                {
+                    name: 'Mural de Bicos',
+                    description: 'Marketplace connecting freelancers to clients, with direct WhatsApp contact.',
+                    tech: 'React · Supabase',
+                    link: 'https://github.com/GabrielGomesDevBr/mural_de_bicos'
+                },
+                {
+                    name: 'Local LLM Interface',
+                    description: 'Chat with local LLMs via Ollama: streaming, history, and document upload for context.',
+                    tech: 'Python · Streamlit · Ollama',
+                    link: 'https://github.com/GabrielGomesDevBr/interface_llm_local'
+                },
+                {
+                    name: 'Prompt Agent',
+                    description: 'Prompt engineering assistant with smart fallback between API and local knowledge base.',
+                    tech: 'Python · LangChain · SQLite',
+                    link: 'https://github.com/GabrielGomesDevBr/prompt_agent'
+                },
+                {
+                    name: 'CliniAgenda',
+                    description: 'Scheduling system focused on security: JWT, rate limiting, prepared statements.',
+                    tech: 'Node.js · PostgreSQL · JWT',
+                    link: 'https://github.com/GabrielGomesDevBr/agendamento'
+                }
+            ],
+            viewCode: 'View code'
+        },
+
         contact: {
-            badge: 'Contact',
-            title: "Let's",
-            titleHighlight: ' work together?',
-            description: "I'm available for new projects, partnerships, or job opportunities. Get in touch and let's talk!",
-            cta: {
-                title: 'Ready for the next step?',
-                description: 'Download my complete resume in PDF or contact me directly. I respond within 24 hours!',
-                downloadCV: 'Download Resume PDF',
-                whatsapp: 'WhatsApp',
-                email: 'or send an email'
+            eyebrow: 'contact',
+            title: "Let's get to the point.",
+            text: "I'm looking for product engineer or full-stack roles on teams that value autonomy and business sense. São Paulo or remote. I reply within 24 hours.",
+            whatsapp: 'Message on WhatsApp',
+            whatsappMessage: 'Hi Gabriel! I saw your portfolio and would like to talk.',
+            downloadCV: 'Download resume (PDF)',
+            links: {
+                email: 'gabrielgomesdevbr@gmail.com',
+                linkedin: 'linkedin.com/in/gabrielgomesdevbr',
+                github: 'github.com/GabrielGomesDevBr'
             },
-            location: 'São Paulo, Brazil • Available for remote work'
+            location: 'São Paulo, Brazil · open to remote'
         },
 
-        // Footer
         footer: {
-            role: 'Full-Stack Developer',
+            role: 'Full-Stack Product Engineer',
             rights: 'All rights reserved.',
-            madeWith: 'Made with',
-            using: 'using'
-        }
-    }
-};
-
-export const projectTranslations = {
-    'pt-BR': {
-        abaplay: {
-            subtitle: 'Plataforma SaaS Multi-tenant',
-            description: 'Sistema completo de gestão para clínicas de terapia infantil (ABA, fono, TO). Desenvolvido 100% solo, atualmente em produção com +300 pacientes e 4 clínicas ativas.',
-            highlights: [
-                'Arquitetura multi-tenant com isolamento por clinic_id',
-                'WebSocket para chat em tempo real (terapeuta-pais)',
-                'Sistema Multi-Agente com IA para insights e análises',
-                'Geração de relatórios profissionais em PDF'
-            ]
-        },
-        lumnipsi: {
-            subtitle: 'Plataforma Clínica para Psicologia',
-            description: 'Sistema clínico completo para psicologia com prontuário eletrônico, agenda, documentos, registros restritos com PIN, portal do cliente e assistente IA. Monorepo full-stack TypeScript com 15+ módulos de API.',
-            highlights: [
-                'RBAC com 8 papéis hierárquicos (OWNER → GUARDIAN) e PIN secundário',
-                'Conformidade LGPD com auditoria de ações sensíveis',
-                'Assistente IA integrada (Lia) via LangChain + OpenAI',
-                'Motor de relatórios clínicos a partir de sessões com indicadores estruturados'
-            ]
-        },
-        outreach: {
-            subtitle: 'Automação Comercial Multi-Agente',
-            description: 'Sistema de automação comercial B2B multicanal com WhatsApp (Meta Cloud API) e Email (Resend). Utiliza 5 agentes LLM especializados para qualificação, sugestão de respostas e conversão de leads.',
-            highlights: [
-                '5 agentes LLM especializados (Qualificação, Objeção, Conversão...)',
-                'WhatsApp via Meta Cloud API + Email drip 4 etapas via Resend',
-                '178 testes unitários com cobertura completa',
-                'Deploy dual: Ollama (local GPU) / Claude Haiku (VPS)'
-            ]
-        },
-        'operadora-hunter': {
-            subtitle: 'Pipeline de Prospecção com IA',
-            description: 'Sistema de prospecção de leads com pipeline de 5 fases integrando fontes públicas (ANS, CNES, Google Maps), enriquecimento automatizado e classificação por LLM. Dashboard analítico com mapas 3D e visualizações avançadas.',
-            highlights: [
-                'Pipeline de 5 fases: ANS → CNES → Enriquecimento → LLM → Scoring',
-                'DuckDB + Polars para processamento analítico de alta performance',
-                'Orquestração com Prefect 3.x (retries, logging estruturado)',
-                'Dashboard com mapa 3D (deck.gl), Sankey e heatmaps'
-            ]
-        },
-        'lead-finder': {
-            subtitle: 'Descoberta de Leads com IA Local',
-            description: 'Ferramenta de descoberta e classificação de leads usando web scraping (Playwright) e classificação por IA local (Ollama). Pipeline automatizado de 3 fases com dashboard em tempo real.',
-            highlights: [
-                'Web scraping assíncrono com Playwright no Google Maps',
-                'Classificação ABA por IA local (Ollama qwen2.5:14b)',
-                'Enriquecimento de sites: emails, WhatsApp, redes sociais',
-                'Dashboard Streamlit com progresso em tempo real'
-            ]
-        },
-        'financas-ia': {
-            subtitle: 'Assistente Financeiro com IA',
-            description: 'Aplicação que permite registrar gastos via conversa natural com IA. Utiliza GPT-4o para interpretar comandos e categorizar transações automaticamente.',
-            highlights: [
-                'Chat com IA para registro de gastos',
-                'Gestão familiar compartilhada',
-                'Row Level Security (RLS)',
-                'PWA instalável'
-            ]
-        },
-        'psicoia-pro': {
-            subtitle: 'Gerador de Relatórios com IA',
-            description: 'Sistema que auxilia psicólogos na criação de 17 tipos de relatórios profissionais. Processo guiado com geração automática via GPT-4.',
-            highlights: [
-                '17 tipos de relatórios disponíveis',
-                'Exportação para DOCX',
-                'Processo passo-a-passo guiado'
-            ]
-        }
-    },
-    'en': {
-        abaplay: {
-            subtitle: 'Multi-tenant SaaS Platform',
-            description: 'Complete management system for pediatric therapy clinics (ABA, speech therapy, occupational therapy). Built 100% solo, currently in production with 300+ patients and 4 active clinics.',
-            highlights: [
-                'Multi-tenant architecture with clinic_id isolation',
-                'WebSocket for real-time chat (therapist-parents)',
-                'Multi-Agent AI System for insights and analytics',
-                'Professional PDF report generation'
-            ]
-        },
-        lumnipsi: {
-            subtitle: 'Clinical Psychology Platform',
-            description: 'Complete clinical system for psychology with electronic health records, scheduling, documents, PIN-protected restricted records, client portal, and AI assistant. Full-stack TypeScript monorepo with 15+ API modules.',
-            highlights: [
-                'RBAC with 8 hierarchical roles (OWNER → GUARDIAN) and secondary PIN',
-                'LGPD compliance with sensitive action auditing',
-                'Integrated AI assistant (Lia) via LangChain + OpenAI',
-                'Clinical report engine from sessions with structured indicators'
-            ]
-        },
-        outreach: {
-            subtitle: 'Multi-Agent Commercial Automation',
-            description: 'Multi-channel B2B commercial automation system with WhatsApp (Meta Cloud API) and Email (Resend). Uses 5 specialized LLM agents for qualification, response suggestions, and lead conversion.',
-            highlights: [
-                '5 specialized LLM agents (Qualification, Objection, Conversion...)',
-                'WhatsApp via Meta Cloud API + 4-step Email drip via Resend',
-                '178 unit tests with full coverage',
-                'Dual deploy: Ollama (local GPU) / Claude Haiku (VPS)'
-            ]
-        },
-        'operadora-hunter': {
-            subtitle: 'AI-Powered Prospecting Pipeline',
-            description: 'Lead prospecting system with a 5-phase pipeline integrating public data sources (ANS, CNES, Google Maps), automated enrichment, and LLM classification. Analytical dashboard with 3D maps and advanced visualizations.',
-            highlights: [
-                '5-phase pipeline: ANS → CNES → Enrichment → LLM → Scoring',
-                'DuckDB + Polars for high-performance analytical processing',
-                'Orchestration with Prefect 3.x (retries, structured logging)',
-                'Dashboard with 3D maps (deck.gl), Sankey and heatmaps'
-            ]
-        },
-        'lead-finder': {
-            subtitle: 'Lead Discovery with Local AI',
-            description: 'Lead discovery and classification tool using web scraping (Playwright) and local AI classification (Ollama). Automated 3-phase pipeline with real-time dashboard.',
-            highlights: [
-                'Async web scraping with Playwright on Google Maps',
-                'ABA classification via local AI (Ollama qwen2.5:14b)',
-                'Site enrichment: emails, WhatsApp, social media',
-                'Streamlit dashboard with real-time progress'
-            ]
-        },
-        'financas-ia': {
-            subtitle: 'AI Financial Assistant',
-            description: 'Application that allows expense tracking through natural conversation with AI. Uses GPT-4o to interpret commands and automatically categorize transactions.',
-            highlights: [
-                'AI chat for expense tracking',
-                'Shared family management',
-                'Row Level Security (RLS)',
-                'Installable PWA'
-            ]
-        },
-        'psicoia-pro': {
-            subtitle: 'AI Report Generator',
-            description: 'System that helps psychologists create 17 types of professional reports. Guided process with automatic generation via GPT-4.',
-            highlights: [
-                '17 report types available',
-                'DOCX export',
-                'Step-by-step guided process'
-            ]
+            madeWith: 'Built with React + Tailwind — and yes, with AI.'
         }
     }
 };

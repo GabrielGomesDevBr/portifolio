@@ -1,11 +1,12 @@
 import jsPDF from 'jspdf'
 
+// Números citados verificados no código-fonte dos projetos em julho/2026.
 const cvData = {
     'pt-BR': {
         filename: 'Gabriel_Gomes_Curriculo.pdf',
         header: {
             name: 'Gabriel Gomes',
-            title: 'Engenheiro de Software | Especialista em IA',
+            title: 'Engenheiro de Produto Full-Stack | SaaS & IA Aplicada',
             email: 'gabrielgomesdevbr@gmail.com',
             phone: '(11) 94602-0901',
             location: 'São Paulo, SP',
@@ -19,63 +20,63 @@ const cvData = {
             certifications: 'Certificações',
             education: 'Formação Acadêmica'
         },
-        summaryText: 'Engenheiro de Software com especialização em Inteligência Artificial e Ciência de Dados. Experiência na criação de produtos digitais do conceito ao desenvolvimento, com foco em resolver problemas complexos através de soluções baseadas em LLMs. Desenvolvedor do ABAplay, plataforma SaaS multi-tenant que atende 300+ pacientes em 4 clínicas. Background de 9 anos em gestão como Diretor Administrativo.',
+        summaryText: 'Engenheiro de produto full-stack: construo, lanço e opero sistemas SaaS de ponta a ponta — do modelo de dados ao funil de vendas. Criador do ABAplay, plataforma multi-tenant em produção com 4 clínicas pagantes e 300+ pacientes (180 mil linhas de código, 248 migrations), e do LuminiPsi, SaaS em TypeScript com pirâmide completa de testes e billing Stripe. Uso IA como alavanca de produtividade com responsabilidade integral sobre arquitetura, operação e suporte. Background de 9 anos como Diretor Administrativo: entendo o negócio que o software serve.',
         experience: [
             {
                 company: 'ABAplay',
-                role: 'Fundador & Desenvolvedor Full-Stack',
-                period: '2023 - Presente',
-                description: 'Plataforma SaaS multi-tenant para clínicas de terapia infantil. Sistema completo com gestão de pacientes, sessões ABA, chat em tempo real, relatórios automatizados e integração com IA.',
+                role: 'Fundador & Engenheiro de Produto',
+                period: '2023 – Presente',
+                description: 'SaaS multi-tenant para clínicas de terapia infantil, em produção contínua desde 2025 com clientes pagantes. Responsável por produto, código, infraestrutura, vendas e suporte.',
                 achievements: [
-                    '300+ pacientes ativos, 145K+ linhas de código',
-                    'Arquitetura multi-tenant com isolamento por clinic_id',
-                    'Sistema Multi-Agente com IA para insights clínicos',
-                    'Chat em tempo real + relatórios PDF automatizados'
+                    '4 clínicas pagantes e 300+ pacientes com acompanhamento clínico na plataforma',
+                    '180 mil linhas de código, 484 commits em 13 meses, 248 migrations versionadas',
+                    'Sistema multi-agente de IA (4 agentes especializados) com limites de custo por clínica e auditoria LGPD',
+                    'Isolamento multi-tenant em toda query; uploads diretos a Cloudflare R2 com URLs pré-assinadas',
+                    'Máquina de aquisição própria: descoberta de leads (Playwright + Ollama), qualificação com dados públicos ANS/CNES (score 0–100) e outreach via WhatsApp oficial + e-mail com 5 agentes LLM (178 testes unitários)'
                 ]
             },
             {
-                company: 'Alignerr',
-                role: 'Prompt Engineer',
-                period: '2024',
-                description: 'Otimização de modelos de linguagem e desenvolvimento de sistemas conversacionais inteligentes para projetos de IA.',
+                company: 'LuminiPsi',
+                role: 'Fundador & Engenheiro de Produto',
+                period: '2026 – Presente',
+                description: 'SaaS de gestão clínica para psicólogos, com conformidade CFP/LGPD no centro do produto. Em fase final de QA para lançamento.',
                 achievements: [
-                    'Refinamento de prompts para modelos GPT',
-                    'Avaliação e feedback de respostas de IA',
-                    'Desenvolvimento de datasets de treinamento'
+                    '64 mil linhas de TypeScript em monorepo; 24 módulos de API com validação Zod',
+                    'Pirâmide de testes completa: unitários, integração (isolamento de tenant, RBAC, quotas) e e2e com Playwright',
+                    'Billing Stripe com webhook idempotente, 4 planos e add-ons; RBAC com 8 papéis',
+                    'Decisão de remover IA do conteúdo clínico por ética profissional — automação determinística e auditável'
                 ]
             },
             {
-                company: 'Outlier AI',
+                company: 'Alignerr · Outlier',
                 role: 'Prompt Engineer',
                 period: '2024',
-                description: 'Trabalho com modelos de linguagem avançados, focando em qualidade de resposta e alinhamento com expectativas humanas.',
+                description: 'Avaliação e otimização de modelos de linguagem em escala para plataformas internacionais de treinamento de IA.',
                 achievements: [
-                    'Avaliação de outputs de modelos de IA',
-                    'Criação de prompts otimizados',
-                    'Análise de edge cases e comportamentos inesperados'
+                    'Avaliação de qualidade de resposta, análise de edge cases e comportamentos inesperados',
+                    'Criação de prompts otimizados e datasets de treinamento'
                 ]
             },
             {
                 company: 'Hope Construtora',
                 role: 'Diretor Administrativo',
-                period: '2015 - 2024',
-                description: 'Gestão completa de operações administrativas, equipes e projetos na área de construção civil.',
+                period: '2015 – 2024',
+                description: 'Nove anos liderando operações, equipes multidisciplinares, fornecedores e planejamento estratégico.',
                 achievements: [
-                    '9 anos de experiência em liderança',
-                    'Gestão de equipes multidisciplinares',
-                    'Planejamento estratégico e operacional'
+                    'Gestão de orçamento, contratos e processos ponta a ponta — a base da minha visão de negócio',
+                    'Experiência direta com liderança de pessoas e resolução de conflitos operacionais'
                 ]
             }
         ],
         skills: {
-            'IA & LLMs': 'Multi-Agent Systems, Prompt Engineering, OpenAI API, LangChain, MCP Tools, FastAPI',
-            'Frontend': 'React, Next.js, TypeScript, Tailwind CSS, JavaScript',
-            'Backend': 'Node.js, Express, Python, Socket.IO, REST APIs',
-            'Database': 'PostgreSQL, Supabase, Firebase, SQL',
-            'DevOps': 'Git, Render, Vercel, Linux'
+            'Linguagens': 'TypeScript, JavaScript, Python, SQL',
+            'Frontend': 'React 18/19, Vite, Tailwind CSS, PWA',
+            'Backend': 'Node.js, Express, Prisma, PostgreSQL, Socket.IO, Stripe, REST APIs',
+            'IA & LLMs': 'OpenAI, Anthropic, Ollama, sistemas multi-agente, prompt engineering, LangChain',
+            'Infra & Testes': 'Render, VPS (Nginx/Let\'s Encrypt), Cloudflare R2, Neon, Jest, Playwright'
         },
         certifications: [
-            'Prompt Engineering - Especialização',
+            'Prompt Engineering — Especialização',
             'LangChain / LangGraph: Generative AI with LLMs',
             'Formação em Ciência de Dados',
             'Agentes de IA com MCP & Streamlit',
@@ -86,15 +87,16 @@ const cvData = {
             {
                 degree: 'Bacharelado em Engenharia de Software',
                 institution: 'Universidade Cruzeiro do Sul',
-                period: 'Em andamento'
+                period: 'Em andamento (2º ano)'
             }
-        ]
+        ],
+        footnote: 'Métricas de projetos verificáveis no código-fonte e em produção (julho/2026).'
     },
     'en': {
         filename: 'Gabriel_Gomes_Resume.pdf',
         header: {
             name: 'Gabriel Gomes',
-            title: 'Software Engineer | AI Specialist',
+            title: 'Full-Stack Product Engineer | SaaS & Applied AI',
             email: 'gabrielgomesdevbr@gmail.com',
             phone: '+55 11 94602-0901',
             location: 'São Paulo, Brazil',
@@ -108,63 +110,63 @@ const cvData = {
             certifications: 'Certifications',
             education: 'Education'
         },
-        summaryText: 'Software Engineer specialized in Artificial Intelligence and Data Science. Experience building digital products from concept to deployment, focused on solving complex problems through LLM-based solutions. Developer of ABAplay, a multi-tenant SaaS platform serving 300+ patients across 4 clinics. 9 years of management experience as Administrative Director.',
+        summaryText: 'Full-stack product engineer: I build, launch, and operate SaaS systems end to end — from the data model to the sales funnel. Creator of ABAplay, a multi-tenant platform in production with 4 paying clinics and 300+ patients (180K lines of code, 248 migrations), and LuminiPsi, a TypeScript SaaS with a full testing pyramid and Stripe billing. I use AI as a productivity lever with full ownership of architecture, operations, and support. 9-year background as an Administrative Director: I understand the business the software serves.',
         experience: [
             {
                 company: 'ABAplay',
-                role: 'Founder & Full-Stack Developer',
-                period: '2023 - Present',
-                description: 'Multi-tenant SaaS platform for pediatric therapy clinics. Complete system with patient management, ABA sessions, real-time chat, automated reports, and AI integration.',
+                role: 'Founder & Product Engineer',
+                period: '2023 – Present',
+                description: 'Multi-tenant SaaS for pediatric therapy clinics, running continuously in production since 2025 with paying customers. Responsible for product, code, infrastructure, sales, and support.',
                 achievements: [
-                    '300+ active patients, 145K+ lines of code',
-                    'Multi-tenant architecture with clinic_id isolation',
-                    'Multi-Agent AI System for clinical insights',
-                    'Real-time chat + automated PDF reports'
+                    '4 paying clinics and 300+ patients with clinical follow-up on the platform',
+                    '180K lines of code, 484 commits in 13 months, 248 versioned migrations',
+                    'Multi-agent AI system (4 specialized agents) with per-clinic cost limits and LGPD audit trail',
+                    'Multi-tenant isolation in every query; direct browser uploads to Cloudflare R2 via presigned URLs',
+                    'Self-built acquisition machine: lead discovery (Playwright + Ollama), qualification from public health data (0–100 scoring), and outreach via official WhatsApp + email with 5 LLM agents (178 unit tests)'
                 ]
             },
             {
-                company: 'Alignerr',
+                company: 'LuminiPsi',
+                role: 'Founder & Product Engineer',
+                period: '2026 – Present',
+                description: 'Clinical management SaaS for psychologists, with regulatory compliance (CFP/LGPD) at the center of the product. In final QA for launch.',
+                achievements: [
+                    '64K lines of TypeScript in a monorepo; 24 API modules with Zod validation',
+                    'Full testing pyramid: unit, integration (tenant isolation, RBAC, quotas), and e2e with Playwright',
+                    'Stripe billing with idempotent webhooks, 4 plans, and add-ons; 8-role RBAC',
+                    'Chose to remove AI from clinical content for professional ethics — deterministic, auditable automation'
+                ]
+            },
+            {
+                company: 'Alignerr · Outlier',
                 role: 'Prompt Engineer',
                 period: '2024',
-                description: 'Optimization of language models and development of intelligent conversational systems for AI projects.',
+                description: 'LLM evaluation and optimization at scale for international AI training platforms.',
                 achievements: [
-                    'GPT model prompt refinement',
-                    'AI response evaluation and feedback',
-                    'Training dataset development'
+                    'Response quality evaluation, edge case and unexpected behavior analysis',
+                    'Optimized prompt creation and training dataset development'
                 ]
             },
             {
-                company: 'Outlier AI',
-                role: 'Prompt Engineer',
-                period: '2024',
-                description: 'Working with advanced language models, focusing on response quality and human expectation alignment.',
-                achievements: [
-                    'AI model output evaluation',
-                    'Optimized prompt creation',
-                    'Edge case and unexpected behavior analysis'
-                ]
-            },
-            {
-                company: 'Hope Construction',
+                company: 'Hope Construtora',
                 role: 'Administrative Director',
-                period: '2015 - 2024',
-                description: 'Complete management of administrative operations, teams, and projects in the construction industry.',
+                period: '2015 – 2024',
+                description: 'Nine years leading operations, multidisciplinary teams, suppliers, and strategic planning.',
                 achievements: [
-                    '9 years of leadership experience',
-                    'Multidisciplinary team management',
-                    'Strategic and operational planning'
+                    'End-to-end budget, contract, and process management — the foundation of my business sense',
+                    'Direct experience leading people and resolving operational conflicts'
                 ]
             }
         ],
         skills: {
-            'AI & LLMs': 'Multi-Agent Systems, Prompt Engineering, OpenAI API, LangChain, MCP Tools, FastAPI',
-            'Frontend': 'React, Next.js, TypeScript, Tailwind CSS, JavaScript',
-            'Backend': 'Node.js, Express, Python, Socket.IO, REST APIs',
-            'Database': 'PostgreSQL, Supabase, Firebase, SQL',
-            'DevOps': 'Git, Render, Vercel, Linux'
+            'Languages': 'TypeScript, JavaScript, Python, SQL',
+            'Frontend': 'React 18/19, Vite, Tailwind CSS, PWA',
+            'Backend': 'Node.js, Express, Prisma, PostgreSQL, Socket.IO, Stripe, REST APIs',
+            'AI & LLMs': 'OpenAI, Anthropic, Ollama, multi-agent systems, prompt engineering, LangChain',
+            'Infra & Testing': 'Render, VPS (Nginx/Let\'s Encrypt), Cloudflare R2, Neon, Jest, Playwright'
         },
         certifications: [
-            'Prompt Engineering - Specialization',
+            'Prompt Engineering — Specialization',
             'LangChain / LangGraph: Generative AI with LLMs',
             'Data Science Training',
             'AI Agents with MCP & Streamlit',
@@ -173,11 +175,12 @@ const cvData = {
         ],
         education: [
             {
-                degree: 'Bachelor in Software Engineering',
-                institution: 'Cruzeiro do Sul University',
-                period: 'In Progress'
+                degree: 'B.Sc. in Software Engineering',
+                institution: 'Universidade Cruzeiro do Sul',
+                period: 'In progress (2nd year)'
             }
-        ]
+        ],
+        footnote: 'Project metrics verifiable in source code and production (July 2026).'
     }
 }
 
@@ -185,67 +188,67 @@ export function generateCV(language = 'pt-BR') {
     const data = cvData[language] || cvData['pt-BR']
     const doc = new jsPDF()
 
-    // Colors
-    const primaryColor = [99, 102, 241] // Indigo
-    const textDark = [30, 41, 59]
-    const textLight = [100, 116, 139]
+    // Cores da marca (pine / ink)
+    const primaryColor = [18, 105, 91]
+    const textDark = [19, 39, 35]
+    const textLight = [107, 128, 124]
 
-    let yPos = 20
+    let yPos = 18
 
-    // Header with gradient effect
+    // Cabeçalho
     doc.setFillColor(...primaryColor)
-    doc.rect(0, 0, 210, 45, 'F')
+    doc.rect(0, 0, 210, 42, 'F')
 
-    // Name
     doc.setTextColor(255, 255, 255)
-    doc.setFontSize(24)
+    doc.setFontSize(23)
     doc.setFont('helvetica', 'bold')
     doc.text(data.header.name, 20, yPos)
 
-    // Title
-    yPos += 10
-    doc.setFontSize(12)
+    yPos += 9
+    doc.setFontSize(11)
     doc.setFont('helvetica', 'normal')
     doc.text(data.header.title, 20, yPos)
 
-    // Contact info
     yPos += 8
     doc.setFontSize(9)
     doc.text(`${data.header.email} | ${data.header.phone} | ${data.header.location}`, 20, yPos)
     yPos += 5
     doc.text(`${data.header.linkedin} | ${data.header.github}`, 20, yPos)
 
-    yPos = 55
+    yPos = 52
 
-    // Helper function for section headers
+    const checkPage = (needed = 30) => {
+        if (yPos > 285 - needed) {
+            doc.addPage()
+            yPos = 20
+        }
+    }
+
     const addSectionHeader = (title) => {
+        checkPage(20)
         doc.setFillColor(...primaryColor)
-        doc.rect(20, yPos - 1, 170, 0.5, 'F')
+        doc.rect(20, yPos - 1, 170, 0.6, 'F')
         doc.setTextColor(...primaryColor)
-        doc.setFontSize(12)
+        doc.setFontSize(11)
         doc.setFont('helvetica', 'bold')
         doc.text(title.toUpperCase(), 20, yPos + 6)
         yPos += 12
     }
 
-    // Summary
+    // Resumo
     addSectionHeader(data.sections.summary)
     doc.setTextColor(...textDark)
-    doc.setFontSize(10)
+    doc.setFontSize(9.5)
     doc.setFont('helvetica', 'normal')
     const summaryLines = doc.splitTextToSize(data.summaryText, 170)
     doc.text(summaryLines, 20, yPos)
-    yPos += summaryLines.length * 5 + 8
+    yPos += summaryLines.length * 4.4 + 8
 
-    // Experience
+    // Experiência
     addSectionHeader(data.sections.experience)
 
-    data.experience.forEach((exp, index) => {
-        // Check if we need a new page
-        if (yPos > 250) {
-            doc.addPage()
-            yPos = 20
-        }
+    data.experience.forEach((exp) => {
+        checkPage(40)
 
         doc.setTextColor(...textDark)
         doc.setFontSize(11)
@@ -267,53 +270,52 @@ export function generateCV(language = 'pt-BR') {
         doc.text(descLines, 20, yPos)
         yPos += descLines.length * 4 + 2
 
-        // Achievements
         exp.achievements.forEach(achievement => {
-            doc.text(`• ${achievement}`, 25, yPos)
-            yPos += 4
+            checkPage(12)
+            const achLines = doc.splitTextToSize(`• ${achievement}`, 165)
+            doc.text(achLines, 25, yPos)
+            yPos += achLines.length * 4
         })
 
-        yPos += 4
+        yPos += 5
     })
 
-    // Check if we need a new page for skills
-    if (yPos > 220) {
-        doc.addPage()
-        yPos = 20
-    }
-
-    // Skills
+    // Competências
     addSectionHeader(data.sections.skills)
 
     Object.entries(data.skills).forEach(([category, skills]) => {
+        checkPage(12)
         doc.setTextColor(...textDark)
-        doc.setFontSize(10)
+        doc.setFontSize(9.5)
         doc.setFont('helvetica', 'bold')
         doc.text(`${category}: `, 20, yPos)
         doc.setFont('helvetica', 'normal')
-        doc.text(skills, 20 + doc.getTextWidth(`${category}: `), yPos)
-        yPos += 6
+        const skillLines = doc.splitTextToSize(skills, 165 - doc.getTextWidth(`${category}: `))
+        doc.text(skillLines, 20 + doc.getTextWidth(`${category}: `), yPos)
+        yPos += skillLines.length * 4.4 + 1.5
     })
 
     yPos += 4
 
-    // Certifications
+    // Certificações
     addSectionHeader(data.sections.certifications)
     doc.setTextColor(...textDark)
     doc.setFontSize(9)
     doc.setFont('helvetica', 'normal')
 
     data.certifications.forEach(cert => {
+        checkPage(8)
         doc.text(`• ${cert}`, 25, yPos)
         yPos += 5
     })
 
     yPos += 4
 
-    // Education
+    // Formação
     addSectionHeader(data.sections.education)
 
     data.education.forEach(edu => {
+        checkPage(15)
         doc.setTextColor(...textDark)
         doc.setFontSize(10)
         doc.setFont('helvetica', 'bold')
@@ -326,6 +328,13 @@ export function generateCV(language = 'pt-BR') {
         yPos += 8
     })
 
-    // Save
+    // Nota de verificação
+    checkPage(12)
+    yPos += 2
+    doc.setTextColor(...textLight)
+    doc.setFontSize(7.5)
+    doc.setFont('helvetica', 'italic')
+    doc.text(data.footnote, 20, yPos)
+
     doc.save(data.filename)
 }

@@ -6,20 +6,11 @@ export default function LanguageSelector() {
     return (
         <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-100 hover:bg-surface-200 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-md font-mono text-xs text-ink-soft hover:bg-pine-50 hover:text-pine-700 transition-colors"
             aria-label="Toggle language"
         >
-            {language === 'pt-BR' ? (
-                <>
-                    <span className="text-xl" role="img" aria-label="Brazil">🇧🇷</span>
-                    <span className="text-sm font-medium text-surface-600 hidden sm:inline">PT</span>
-                </>
-            ) : (
-                <>
-                    <span className="text-xl" role="img" aria-label="USA">🇺🇸</span>
-                    <span className="text-sm font-medium text-surface-600 hidden sm:inline">EN</span>
-                </>
-            )}
+            <span role="img" aria-hidden="true">{language === 'pt-BR' ? '🇧🇷' : '🇺🇸'}</span>
+            <span className="font-medium">{language === 'pt-BR' ? 'PT' : 'EN'}</span>
         </button>
     )
 }
