@@ -2,7 +2,7 @@
 
 **Atualizado em:** 2026-07-23  
 **Fase:** implementação concluída; release candidate validada localmente  
-**Sprint atual:** 12 — lançamento, bloqueado apenas por domínio/hospedagem não informados  
+**Sprint atual:** 12 — publicação no Render
 **Último sprint concluído:** 11 — performance, acessibilidade e QA de motion
 
 ## Concluído
@@ -29,8 +29,8 @@
 
 ## Próximo passo
 
-Configurar `VITE_SITE_URL`, informar a hospedagem e executar o Sprint 12 de publicação/rollback.
-Nenhum deploy foi realizado porque domínio, host e procedimento de rollback não foram fornecidos.
+Validar o deploy automático no Render e registrar o procedimento de rollback.
+O domínio público está configurado como `https://portifolio-k2s6.onrender.com`.
 
 ## Validação da release candidate
 
@@ -45,8 +45,7 @@ Nenhum deploy foi realizado porque domínio, host e procedimento de rollback nã
 
 ## Riscos conhecidos
 
-- `VITE_SITE_URL` ainda precisa receber o domínio público real;
-- hospedagem, headers, redirects e rollback só podem ser validados após definição do host;
+- headers, redirects e rollback ainda precisam ser validados no Render;
 - analytics externo permanece desligado sem `VITE_GA_MEASUREMENT_ID`;
 - LCP local ficou 0,2 s acima da meta aspiracional de 2,5 s, com score 95;
 - validação de Web Vitals reais depende de tráfego em produção;

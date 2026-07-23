@@ -1,11 +1,13 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { loadEnv } from 'vite'
 import { getStaticRouteMeta, publicRoutes, render } from '../dist-ssr/entry-server.js'
 
 const projectRoot = resolve(import.meta.dirname, '..')
 const dist = resolve(projectRoot, 'dist')
 const template = await readFile(resolve(dist, 'index.html'), 'utf8')
-const configuredOrigin = (process.env.VITE_SITE_URL || 'http://localhost:4173').replace(/\/+$/, '')
+const productionEnv = loadEnv('production', projectRoot, '')
+const configuredOrigin = (productionEnv.VITE_SITE_URL || 'http://localhost:4173').replace(/\/+$/, '')
 
 const escapeHtml = (value) => value
   .replaceAll('&', '&amp;')

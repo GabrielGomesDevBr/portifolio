@@ -40,16 +40,16 @@ npm run audit:performance
 
 ## Configuração de produção
 
-Copie `.env.example` e configure:
+O domínio atual já está definido em `.env.production`. Para trocar de domínio, atualize:
 
 - `VITE_SITE_URL`: domínio público final, obrigatório na build de produção para canonical,
   `hreflang`, Open Graph, sitemap e robots;
 - `VITE_GA_MEASUREMENT_ID`: opcional; sem ele, nenhum analytics externo é carregado.
 
-Exemplo:
+Exemplo de sobrescrita temporária:
 
 ```bash
-VITE_SITE_URL=https://portfolio.exemplo.com npm run build
+VITE_SITE_URL=https://novo-dominio.com.br npm run build
 ```
 
 O diretório publicável é `dist/`. Cada rota possui seu próprio `index.html` prerenderizado, além de
@@ -65,4 +65,3 @@ O diretório publicável é `dist/`. Cada rota possui seu próprio `index.html` 
 - documentação de produto e sprints: `docs/portfolio-v2/`.
 
 As capturas dos produtos são dados demo aprovados e ficam em `public/projects/`.
-
