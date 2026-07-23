@@ -6,6 +6,8 @@ node_modules
 # Build
 dist
 dist-ssr
+dist-server
+.tmp-*.png
 *.local
 
 # IDE
@@ -30,6 +32,9 @@ lerna-debug.log*
 
 # Testing
 coverage
+playwright-report
+test-results
+.lighthouse-report.json
 
 # Repos analysis (not needed for portfolio)
 repos_analise

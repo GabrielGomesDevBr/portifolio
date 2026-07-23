@@ -3,27 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061713" />
 
-    <!-- SEO Meta Tags -->
     <title>Gabriel Gomes | Engenheiro de Produto Full-Stack</title>
     <meta name="description" content="Construo, lanço e opero produtos SaaS de ponta a ponta. Criador do ABAplay — plataforma em produção com 4 clínicas pagantes e 300+ pacientes — e do LuminiPsi. 9 anos de gestão + engenharia de software." />
-    <meta name="keywords" content="engenheiro de produto, product engineer, full-stack, react, node.js, typescript, python, ia, saas, healthtech, portfolio" />
     <meta name="author" content="Gabriel Gomes" />
+    <link rel="canonical" href="/" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Gabriel Gomes | Engenheiro de Produto Full-Stack" />
     <meta property="og:description" content="Software que empresas pagam para usar: dois produtos SaaS construídos e operados de ponta a ponta, do banco de dados ao funil de vendas." />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gabriel Gomes" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content="/og/portfolio-og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portfólio de Gabriel Gomes — produtos digitais em operação" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gabriel Gomes | Engenheiro de Produto Full-Stack" />
+    <meta name="twitter:description" content="Produtos digitais que entram em operação." />
+    <meta name="twitter:image" content="/og/portfolio-og.png" />
+    <meta name="twitter:image:alt" content="Portfólio de Gabriel Gomes — produtos digitais em operação" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gabriel Gomes",
+        "jobTitle": "Engenheiro de Produto Full-Stack",
+        "email": "mailto:gabrielgomesdevbr@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressCountry": "BR" },
+        "sameAs": [
+          "https://github.com/GabrielGomesDevBr",
+          "https://linkedin.com/in/gabrielgomesdevbr"
+        ],
+        "knowsAbout": ["Product Engineering", "SaaS", "React", "TypeScript", "Node.js", "PostgreSQL", "Billing"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

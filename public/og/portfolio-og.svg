@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="72%" cy="40%" r="58%">
+      <stop offset="0" stop-color="#164b3c"/>
+      <stop offset="1" stop-color="#061713"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#62e6b6" stroke-opacity=".08"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#f3f4ef"/>
+  <circle cx="48" cy="48" r="18" fill="#07110e"/>
+  <text x="48" y="53" text-anchor="middle" fill="#62e6b6" font-family="monospace" font-size="12" font-weight="700">GG</text>
+  <text x="80" y="54" fill="#07110e" font-family="Arial, sans-serif" font-size="20" font-weight="700">Gabriel Gomes</text>
+  <text x="50" y="150" fill="#16a579" font-family="monospace" font-size="16" font-weight="700" letter-spacing="3">PRODUCT · DESIGN · ENGINEERING</text>
+  <text x="48" y="245" fill="#07110e" font-family="Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="-5">Produtos digitais que</text>
+  <text x="48" y="328" fill="#16a579" font-family="Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="-5">entram em operação.</text>
+  <text x="52" y="397" fill="#34443e" font-family="Arial, sans-serif" font-size="25">SaaS em produção · Interfaces complexas · Billing · Automação</text>
+  <g transform="translate(790 88)" filter="url(#shadow)">
+    <rect width="350" height="410" rx="28" fill="url(#glow)"/>
+    <rect width="350" height="410" rx="28" fill="url(#grid)"/>
+    <circle cx="175" cy="205" r="78" fill="none" stroke="#62e6b6" stroke-opacity=".4"/>
+    <circle cx="175" cy="205" r="122" fill="none" stroke="#62e6b6" stroke-opacity=".15" stroke-dasharray="5 8"/>
+    <circle cx="175" cy="205" r="44" fill="#0d2821" stroke="#62e6b6"/>
+    <text x="175" y="211" text-anchor="middle" fill="#62e6b6" font-family="Arial, sans-serif" font-size="25" font-weight="800">GG</text>
+    <g fill="#0d2821" stroke="#62e6b6" stroke-opacity=".3">
+      <rect x="20" y="72" width="115" height="48" rx="10"/>
+      <rect x="216" y="86" width="114" height="48" rx="10"/>
+      <rect x="26" y="300" width="125" height="48" rx="10"/>
+      <rect x="210" y="286" width="120" height="48" rx="10"/>
+    </g>
+    <g fill="#e9f4ef" font-family="monospace" font-size="10">
+      <text x="36" y="101">INTERFACE</text>
+      <text x="235" y="115">DADOS</text>
+      <text x="43" y="329">PRODUTO</text>
+      <text x="226" y="315">OPERAÇÃO</text>
+    </g>
+  </g>
+  <g transform="translate(50 500)">
+    <rect width="245" height="54" rx="27" fill="#07110e"/>
+    <text x="122" y="34" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="700">2 SaaS em produção</text>
+    <rect x="310" width="245" height="54" rx="27" fill="none" stroke="#cfd8d2"/>
+    <text x="432" y="34" text-anchor="middle" fill="#07110e" font-family="Arial, sans-serif" font-size="16" font-weight="700">300+ pacientes</text>
+  </g>
+</svg>

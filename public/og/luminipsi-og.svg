@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#061713"/><stop offset="1" stop-color="#075c53"/></linearGradient><pattern id="p" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#5eead4" stroke-opacity=".08"/></pattern></defs>
+  <rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#p)"/>
+  <text x="62" y="75" fill="#99f6e4" font-family="monospace" font-size="16" letter-spacing="3">CASE 02 · MENTAL HEALTH · SAAS B2B</text>
+  <text x="60" y="210" fill="#fff" font-family="Arial, sans-serif" font-size="92" font-weight="800" letter-spacing="-6">LuminiPsi</text>
+  <text x="62" y="286" fill="#ccfbf1" font-family="Arial, sans-serif" font-size="43" font-weight="700">Compliance clínico</text>
+  <text x="62" y="338" fill="#ccfbf1" font-family="Arial, sans-serif" font-size="43" font-weight="700">tratado como produto.</text>
+  <g transform="translate(62 430)" font-family="Arial, sans-serif"><rect width="210" height="62" rx="31" fill="#0f9f8f"/><text x="105" y="40" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">Em produção</text><rect x="230" width="250" height="62" rx="31" fill="none" stroke="#4e9189"/><text x="355" y="40" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">CI/CD + rollback</text></g>
+  <g transform="translate(820 100)"><rect width="310" height="380" rx="38" fill="#fff" opacity=".08" stroke="#5eead4"/><path d="M155 72c52 0 94 42 94 94v40c0 77-42 126-94 126s-94-49-94-126v-40c0-52 42-94 94-94Z" fill="none" stroke="#5eead4" stroke-width="2"/><path d="M112 185c16-29 70-29 86 0M109 231h92M125 273h60" fill="none" stroke="#99f6e4" stroke-width="12" stroke-linecap="round"/></g>
+  <text x="62" y="575" fill="#7fb3aa" font-family="monospace" font-size="15">SEGURANÇA · RBAC · PRONTUÁRIO · TESTES · BILLING</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><radialGradient id="g" cx=".75" cy=".5" r=".8"><stop stop-color="#164b3c"/><stop offset="1" stop-color="#030e0b"/></radialGradient><pattern id="p" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#62e6b6" stroke-opacity=".08"/></pattern></defs>
+  <rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#p)"/>
+  <text x="62" y="75" fill="#62e6b6" font-family="monospace" font-size="16" letter-spacing="3">CASE 03 · BILLING INFRASTRUCTURE · NFS-E</text>
+  <text x="60" y="200" fill="#fff" font-family="Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="-6">Asaas × 2</text>
+  <text x="62" y="274" fill="#d1fae5" font-family="Arial, sans-serif" font-size="40" font-weight="700">Uma conta financeira.</text>
+  <text x="62" y="324" fill="#d1fae5" font-family="Arial, sans-serif" font-size="40" font-weight="700">Dois produtos isolados.</text>
+  <g fill="#0d2821" stroke="#62e6b6" font-family="monospace" font-size="15"><rect x="65" y="415" width="170" height="60" rx="14"/><rect x="315" y="415" width="170" height="60" rx="14"/><rect x="565" y="415" width="170" height="60" rx="14"/><rect x="815" y="415" width="200" height="60" rx="14"/></g>
+  <g fill="#e9f4ef" font-family="monospace" font-size="15" text-anchor="middle"><text x="150" y="452">PRODUTO</text><text x="400" y="452">COBRANÇA</text><text x="650" y="452">WEBHOOK</text><text x="915" y="452">ACESSO + NFS-E</text></g>
+  <g stroke="#62e6b6" stroke-width="3"><path d="M235 445h80M485 445h80M735 445h80"/></g>
+  <text x="62" y="565" fill="#7da398" font-family="monospace" font-size="15">IDEMPOTÊNCIA · PRORAÇÃO · INADIMPLÊNCIA · AUTOMAÇÃO FISCAL</text>
+</svg>
